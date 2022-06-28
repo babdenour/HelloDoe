@@ -1,0 +1,107 @@
+<div class="contact-information-form">
+  <div class="contact-information-form__content container-fluid mx-auto px-2 py-4">
+    <form>
+      <fieldset>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="contactFirstName">Prénom</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">👋</div>
+              </div>
+              <input id="contactFirstName"
+                     class="contact-information-form__contact-first-name form-control"
+                     type="text"
+                     placeholder="Prénom"
+                     v-model="contactFirstName"
+                     @input="checkInput"
+                     @blur="checkInput" />
+
+            </div>
+            <div class="text-danger"
+                 v-if="errors.contactFirstName.invalid === true">
+              {{ errors.contactFirstName.msg }}
+            </div>
+
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contactLastName">Nom</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">👋</div>
+              </div>
+              <input id="contactLastName"
+                     class="contact-information-form__contact-last-name form-control"
+                     type="text"
+                     placeholder="Nom"
+                     v-model="contactLastName"
+                     @input="checkInput"
+                     @blur="checkInput" />
+            </div>
+            <div class="text-danger"
+                 v-if="errors.contactLastName.invalid === true">
+              {{ errors.contactLastName.msg }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="contactEmail">Email</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">📧</div>
+              </div>
+              <input id="contactEmail"
+                     class="contact-information-form__contact-email form-control"
+                     type="text"
+                     placeholder="Email"
+                     v-model="contactEmail"
+                     @input="checkInput"
+                     @blur="checkInput" />
+            </div>
+            <div class="text-danger"
+                 v-if="errors.contactEmail.invalid === true">
+              {{ errors.contactEmail.msg }}
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="contactPhone">Téléphone</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">☎️</div>
+              </div>
+              <input id="contactPhone"
+                     class="contact-information-form__contact-phone form-control"
+                     name="contactPhone"
+                     type="text"
+                     placeholder="+33"
+                     v-model="contactPhone"
+                     @input="checkInput"
+                     @blur="checkInput" />
+            </div>
+            <div class="text-danger"
+                 v-if="errors.contactPhone.invalid === true">
+              {{ errors.contactPhone.msg }}
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button class="btn btn-light"
+                @click="previousStep">
+          <i class="fas fa-chevron-left"></i>
+          <span>Étape précédente</span>
+        </button>
+        <button class="btn btn-primary"
+                :disabled="!enableNextButton"
+                @click="nextStep">
+          <span>Étape suivante</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

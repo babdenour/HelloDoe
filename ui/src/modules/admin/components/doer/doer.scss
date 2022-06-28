@@ -1,0 +1,83 @@
+@import '../../../../styles/colors.scss';
+
+.doer {
+  flex-shrink: 0;
+  background-color: #f8f8f8;
+  position: relative;
+  height: 200px;
+  margin: 10px auto;
+  padding: 15px 15px 15px 55px;
+  text-transform: uppercase;
+  top: 4px;
+  transition: 0.4s all ease;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+
+  &:hover {
+    top: 0px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    max-width: 150px;
+    margin: auto;
+    filter: grayscale(0.9);
+  }
+
+  &-id {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: #f5f961;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: -2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-weight: 700;
+    font-size: 12px;
+  }
+}
+
+.doer-pic {
+  margin-bottom: 0em;
+}
+
+.doer-infos {
+  a {
+    text-decoration: none;
+    color: #f8f8f8;
+  }
+
+  li {
+    display: inline-block;
+    padding: 5px;
+    font-weight: 500;
+    color: #f8f8f8;
+    background-color: #050505;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .doer-pic {
+    margin-bottom: 2em;
+    text-align: center;
+  }
+
+  .doer-infos {
+    margin-bottom: 1em;
+  }
+
+  .doer-siret {
+    margin-bottom: 1em;
+  }
+}

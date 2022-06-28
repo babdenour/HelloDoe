@@ -1,0 +1,31 @@
+<el-form class="image-message-form"
+         :model="form"
+         :rules="rules"
+         ref="form">
+  <h6 data-test-id="image-title">{{i18n.imageTitle}}</h6>
+
+  <el-form-item prop="url">
+    <el-input v-model="form.url"
+              :placeholder="i18n.urlExample"
+              @blur="loadPreview"></el-input>
+  </el-form-item>
+
+  <el-image class="image-message-form__preview"
+            :src="previewUrl"
+            fit="cover"
+            lazy
+            @load="setUrlValid"
+            @error="setUrlInvalid">
+    <div slot="placeholder">
+      <div class="image-message-form__preview__slot">
+        <i class="el-icon-loading"></i>
+      </div>
+    </div>
+
+    <div slot="error">
+      <div class="image-message-form__preview__slot">
+        <i class="el-icon-picture-outline"></i>
+      </div>
+    </div>
+  </el-image>
+</el-form>

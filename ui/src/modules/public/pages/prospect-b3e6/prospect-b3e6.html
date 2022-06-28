@@ -1,0 +1,424 @@
+<div id="host">
+  <div class="prospecting-hero">
+    <div class="hero-title">
+      <div class="logo">
+        <router-link to="/">
+          <img alt="Logo Hello Doe"
+               :src="helloDoeLogo" />
+        </router-link>
+      </div>
+      <h1>
+        <span id="prospect-company"
+              class="highlight"
+              style="-webkit-background-clip: text; -webkit-box-decoration-break: clone;"></span>
+        & Hello Doe : Plus besoin de chercher, nous avons trouvé des candidats pour votre annonce
+        de
+        <span class="job-category highlight"
+              style="-webkit-background-clip: text; -webkit-box-decoration-break: clone;"></span>.
+      </h1>
+    </div>
+  </div>
+
+  <div class="prospecting-content">
+    <div>
+      <h2>Hello Doe, le premier chatbot de staffing <span id="emoji-bot"></span></h2>
+      <div class="callout"
+           id="callout-bot">
+        "Chat" comme conversation, "bot" comme robot, notre chatbot est donc capable de répondre
+        de façon automatique et instantanée à un candidat.
+      </div>
+      <p>
+        Avec Hello Doe, lorsque vous postez une mission, une
+        <b>notification Facebook Messenger</b> est envoyée à tous nos utilisateurs qui
+        correspondent à vos critères de disponibilité. <br />Cerise sur le chatbot, nous publions
+        aussi votre annonce sur
+        <a href="https://www.instagram.com/hellodoe_/"
+           target="_blank">Instagram</a>
+        et
+        <a href="http://facebook.com/HelloDoe"
+           target="_blank">Facebook</a>
+        pour l'ouvrir à d'autres candidats.
+      </p>
+      <h4>Pourquoi ces réseaux sociaux ?</h4>
+      <ul class="">
+        <li>🤳 50+ ouvertures par jour.</li>
+        <li>🥇 Représentent 1/3 du temps passés sur les apps.</li>
+        <li>🌈 Partages et tags entre amis facilités.</li>
+      </ul>
+      <p>
+        Et d'ailleurs, vous avez vu à quoi ressemble votre annonce sur nos réseaux sociaux ? Elle
+        a reçu quelques likes :
+        <a id="insta-url"
+           href=""
+           target="_blank">Voir mon annonce.</a>
+      </p>
+    </div>
+    <div>
+      <h2>À chaque mission son entretien <span id="emoji-chat"></span></h2>
+      <p>
+        Pour postuler, nos Doers - c'est le nom qu'on leur donne - répondent à des
+        <b>quiz de pré-sélection</b> spécifiques à votre mission. En quelques messages seulement,
+        nous savons si les candidats sont qualifiés pour la mission. <br /><span class="highlight"
+              style="-webkit-background-clip: text; -webkit-box-decoration-break: clone;">Vous ne recevez donc que les meilleures candidatures.</span>
+      </p>
+      <ul class="">
+        <li>💬 Conversations automatisées.</li>
+        <li>📣 Taux d’ouverture notifications push +90%.</li>
+        <li>✅ Informations testées & vérifiées.</li>
+      </ul>
+      <p>
+        Ces tests prennent la forme de questionnaires à choix multiples, où l'utilisateur doit
+        sélectionner la bonne réponse pour accéder à l'annonce et uploader son CV.
+      </p>
+      <p>
+        Concrètement, voici les quiz que nous avons mis en place pour votre annonce de
+        <span class="job-category highlight"
+              style="-webkit-background-clip: text; -webkit-box-decoration-break: clone;"></span>
+        :
+      </p>
+    </div>
+
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header"
+             id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne">
+              Première étape : <span id="criteria-first"></span>
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapseOne"
+             class="collapse"
+             aria-labelledby="headingOne"
+             data-parent="#accordion">
+          <div class="card-body">
+            Le premier filtre de sélection concerne
+            <b>l'expérience professionnelle</b> des candidats, en vente ou en restauration. Seuls
+            les utilisateurs ayant eu au moins une expérience dans ces domaines ont pu passé cette
+            première étape.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"
+             id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo">
+              Deuxième étape : <span id="criteria-second"></span>
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo"
+             class="collapse"
+             aria-labelledby="headingTwo"
+             data-parent="#accordion">
+          <div class="card-body">
+            Nous procédons ensuite à des <b>tests de langue</b> afin de sélectionner pour vous les
+            candidats ayant le niveau d'anglais requis. Tous les candidats ayant échoué à ces
+            tests sont redirigés vers d'autres annonces :
+            <span class="highlight"
+                  style="-webkit-background-clip: text; -webkit-box-decoration-break: clone;">vous ne recevez que les candidatures correspondant aux besoins de votre
+              mission</span>. <br />Là où le CV traditionnel est figé et où les informations ne peuvent être
+            vérifiées en amont d'un entretien, notre chatbot vous fait gagner un temps précieux.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p>Essayez vous-même les tests mis en place :</p>
+    </div>
+
+    <div class="bot-div">
+      <div id="champ">
+        <div class="first-criteria-menu appear">
+          <ul class="menu-ul">
+            <li>
+              <button @click="reply10()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-10">
+                💳 Vente
+              </button>
+            </li>
+            <li>
+              <button @click="reply11()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-11">
+                🍟 Restauration
+              </button>
+            </li>
+            <li>
+              <button @click="reply12()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-12">
+                😎 Les Deux
+              </button>
+            </li>
+            <li>
+              <button @click="reply13()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-13">
+                😶 Aucune
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="second-criteria-menu disappear">
+          <ul class="menu-ul">
+            <li>
+              <button @click="reply20()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-20">
+                😎 J'assure
+              </button>
+            </li>
+            <li>
+              <button @click="reply21()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-21">
+                🙂 Je me débrouille
+              </button>
+            </li>
+            <li>
+              <button @click="reply22()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-22">
+                😞 Bof bof
+              </button>
+            </li>
+            <!--<li><button @click="badanswertest13()" type="submit" class="btn-2" id="btn-23">4️⃣ In underground</button></li>-->
+          </ul>
+        </div>
+
+        <div class="third-criteria-menu disappear">
+          <ul class="menu-ul">
+            <li>
+              <button @click="reply30()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-21">
+                1️⃣ Like
+              </button>
+            </li>
+            <li>
+              <button @click="reply31()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-22">
+                2️⃣ As if he were
+              </button>
+            </li>
+            <li>
+              <button @click="reply32()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-23">
+                3️⃣ As if
+              </button>
+            </li>
+            <li>
+              <button @click="reply33()"
+                      type="submit"
+                      class="btn-2"
+                      id="btn-24">
+                4️⃣ As
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="restart-menu disappear">
+          <ul class="menu-ul">
+            <li>
+              <button @click="restart()"
+                      type="submit"
+                      class="btn-3"
+                      id="restart">
+                Redémarrer 🔁
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="apply-menu disappear">
+          <ul class="menu-ul">
+            <li>
+              <button @click="newscript1()"
+                      type="submit"
+                      class="btn-3"
+                      id="apply">
+                Accéder à la mission 💰
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div id="answers">
+          <ul id="myList">
+            <li style="animation: first 10s;">Postuler 💬</li>
+            <li style="
+                  margin-left: 0;
+                  color: black;
+                  background-color: rgb(241, 241, 241);
+                  border: 1px solid rgb(241, 241, 241);
+                  animation: second 10s;
+">
+              Avant de pouvoir enregistrer ta candidature, et comme à chaque fois chez Hello Doe,
+              on a quelques questions à te poser 😉
+            </li>
+            <li style="
+                  margin-left: 0;
+                  color: black;
+                  background-color: rgb(241, 241, 241);
+                  border: 1px solid rgb(241, 241, 241);
+                  animation: third 10s;
+">
+              Tu as déjà eu une expérience en vente ou en restauration rapide ?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h5>
+          <button class="btn btn-link">Dernière étape :</button>
+        </h5>
+      </div>
+      <div class="card-body">
+        <p>
+          Ça y est, vous y êtes : les candidats ayant passé ces tests avec succès sont invités à
+          uploader leurs CV. Il ne vous reste plus qu'à leur faire passer un entretien physique ou
+          téléphonique 🙂
+        </p>
+        <p>
+          <span class="highlight"
+                style="-webkit-background-clip: text; -webkit-box-decoration-break: clone;">Accéder aux CV</span>
+          des Doers pré-sélectionnés & contactez-les :
+          <a class="no-grad dropbox-url"
+             href=""
+             target="_blank">Voir les CV 🔗</a>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <p>
+        Ça vous a donné envie de travailler avec nous ? Que ce soit pour des missions récurrentes
+        ou des besoins ponctuels, découvrez
+        <router-link to="/">toutes nos offres</router-link> ou appelez-nous : 06 19 60 00 52.
+      </p>
+    </div>
+    <div class="callout"
+         id="callout-love-letter">
+      <p>
+        Vous préférez vous débrouiller sans nous mais vous avez apprécié notre travail ?
+        <br />Faites-nous en part par mail, ça fait toujours chaud au cœur.
+      </p>
+    </div>
+
+    <div class="callout"
+         id="callout-contact">
+      <ul>
+        <p><b>Lucas d'Urso</b> | CEO & Co-fondateur</p>
+        <p><b>Tél</b> : +33 (0)6 19 60 00 52</p>
+        <p>
+          <b>Mail</b> :
+          <a href="mailto:lucas@hellodoe.co">lucas@hellodoe.co</a>
+        </p>
+        <p><b>Site Web</b> : <router-link to="/">hellodoe.co</router-link>
+        </p>
+        <p>
+          <b>Accéder aux CV retenus</b> :
+          <a class="dropbox-url"
+             id="dropbox-url-inner"
+             href=""
+             target="_blank"></a>
+        </p>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h2>
+      <img alt="Logo Hello Doe"
+           :src="helloDoeLogoWhite" />
+    </h2>
+    <ul class="social">
+      <li>
+        <a href="https://www.facebook.com/HelloDoe"
+           target="_blank"
+           @mouseover="facebook()"
+           @mouseout="original()"
+           id="facebook_icon">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/company/18856462/"
+           target="_blank"
+           @mouseover="linkedin()"
+           @mouseout="original()"
+           id="linkedin_icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/hellodoe_/"
+           @mouseover="medium()"
+           @mouseout="original()"
+           id="instagram_icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://m.me/hellodoe"
+           @mouseover="messenger()"
+           @mouseout="original()"
+           id="messenger_icon">
+          <i class="fab fa-facebook-messenger"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="foot">
+      <li>
+        <a href="mailto:lucas@hellodoe.co">Contact</a>
+      </li>
+      <li>
+        <a href="https://bit.ly/hellodoe-medium"
+           target="_blank">Blog</a>
+      </li>
+      <li>
+        <a href="https://bit.ly/hellodoe-media-kit"
+           target="_blank">Presse</a>
+      </li>
+      <li>
+        <router-link to="/cgu">CGU</router-link>
+      </li>
+      <li>
+        <router-link to="/cgu">Mentions Légales</router-link>
+      </li>
+    </ul>
+    <h5>© 2020 Hello Doe.</h5>
+  </div>
+</div>

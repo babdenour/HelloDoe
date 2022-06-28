@@ -1,0 +1,54 @@
+@import 'colors.scss';
+
+.dialog {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  z-index: 1000;
+
+  &__mask {
+    display: flex;
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__dialog-content {
+    justify-content: center;
+    margin: 50vh 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    box-shadow: 0 0 12px rgba(17, 17, 17, 0.3);
+    width: var(--width);
+    border-radius: 12px;
+
+    &__close-box {
+      position: absolute;
+      top: 12px;
+      right: 8px;
+      padding: 6px 10px;
+
+      &:hover {
+        cursor: pointer;
+
+        .dialog {
+          &__dialog-content {
+            &__close-box-cross {
+              color: black;
+            }
+          }
+        }
+      }
+
+      &-cross {
+        position: relative;
+        font-size: 20px;
+        color: #e0e0e0;
+      }
+    }
+  }
+}

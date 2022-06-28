@@ -1,0 +1,11 @@
+<div class="question-preview">
+  <p class="question-preview__summary"
+     data-test-id="summary">{{summaryText}}</p>
+
+  <div class="question-preview__tag-list"
+       v-if="hasTags">
+    <el-tag v-for="tag in question.tags"
+            :key="tag"
+            data-test-id="tag">{{tag}}</el-tag>
+  </div>
+</div>

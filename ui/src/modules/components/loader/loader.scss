@@ -1,0 +1,45 @@
+@import 'colors.scss';
+
+.loader {
+  border-style: solid;
+  border-color: $grey;
+  border-top-style: solid;
+  border-top-color: $blue-l;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  position: relative;
+}
+
+.medium {
+  @extend .loader;
+  $loader-size: 60;
+
+  border-width: #{$loader-size / 10}px;
+  border-top-width: #{$loader-size / 10}px;
+  width: #{$loader-size}px;
+  height: #{$loader-size}px;
+  left: calc(50% - #{$loader-size / 2}px);
+  top: calc(50% - #{$loader-size / 2}px);
+}
+
+.small {
+  @extend .loader;
+  $loader-size: 30;
+
+  border-width: #{$loader-size / 10}px;
+  border-top-width: #{$loader-size / 10}px;
+  width: #{$loader-size}px;
+  height: #{$loader-size}px;
+  left: calc(50% - #{$loader-size / 2}px);
+  top: calc(50% - #{$loader-size / 2}px);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

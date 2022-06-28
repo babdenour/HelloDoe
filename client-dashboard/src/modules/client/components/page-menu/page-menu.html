@@ -1,0 +1,45 @@
+<div class="page-menu">
+  <div class="page-menu__main-menu">
+    <div class="page-menu__main-menu-logo-hellodoe">
+      <img alt="logohellodoe"
+           :src="logoHelloDoe" />
+    </div>
+  </div>
+
+  <div class="page-menu__sub-menu">
+    <div class="page-menu__sub-menu__title-wrapper">
+      <h2 class="page-menu__sub-menu__title"
+          data-test-id="sub-menu-title">{{i18n.titleSubMenu}}
+      </h2>
+      <hd-emoji size="30px"
+                name="waving-hand-sign"></hd-emoji>
+    </div>
+
+    <hd-menu-button v-for="nav in navItems"
+                    class="page-menu__sub-menu-button"
+                    :title="nav.buttonTitle"
+                    :is-selected="isButtonSelected(nav.pageName)"
+                    @click.native="emitPageSelected(nav.pageName)"
+                    :data-test-id="nav.pageName">
+      <template #icon>
+        <hd-emoji size="19px"
+                  :name="nav.emojiName"></hd-emoji>
+
+      </template>
+    </hd-menu-button>
+
+    <span class="spacer"></span>
+    <hd-menu-button class="page-menu__sub-menu-button"
+                    :title="i18n.titleProceedToPayment"
+                    type="appealing"
+                    @click.native="emitRedirectToCheckoutEvent"
+                    data-test-id="unlock-favorites-button">
+      <template #icon>
+        <hd-emoji size="19px"
+                  name="credit-card"></hd-emoji>
+      </template>
+    </hd-menu-button>
+    <slot></slot>
+
+  </div>
+</div>

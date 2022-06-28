@@ -1,0 +1,22 @@
+<div class="card-dialog">
+  <div class="card-dialog__icon"
+       data-test-id="icon-src-card-dialog">{{iconSrc}}</div>
+  <div class="card-dialog__title"
+       data-test-id="title-src-card-dialog">{{title}} </div>
+
+  <div v-if="shouldDisplayOptions"
+       class="card-dialog__options"
+       data-test-id="option-wrapper">
+    <div class="card-dialog__options__option"
+         v-for="option in options"
+         data-test-id="option">{{option.text}}</div>
+  </div>
+
+  <div class="card-dialog__description"
+       data-test-id="description-src-card-dialog">{{description}}</div>
+  <div class="card-dialog__cta"
+       v-html="cta"
+       @click="ctaClicked"
+       data-test-id="cta-src-card-dialog"></div>
+
+</div>

@@ -1,0 +1,88 @@
+<div>
+  <div @scroll="scrollActiveButton()"
+       id="containerTimeTable"
+       class="containerTimeTable">
+    <div class="containerTimeTable__scrollmenu">
+      <a class="containerTimeTable__scrollmenu__menuOption emojiDate"> 📅</a>
+      <a :class="{'buttonOn': activeMonth === month}"
+         class="containerTimeTable__scrollmenu__menuOption"
+         v-for="(month, idx) in listMonth"
+         v-bind:href="'#'+month">{{month}}</a>
+    </div>
+    <div class="containerCalendar">
+      <div class="bulle">
+        <div class="logoHello">
+          <img class="imageHello"
+               :src="logoHelloDoe"
+               alt="mainImage" />
+        </div>
+        <div class="intro">
+          <div class="textintro">
+            <div>{{missionTitle.title}} {{missionTitle.emoji}}</div>
+            <div>Voici les dates et horaires de ta mission.</div>
+          </div>
+        </div>
+      </div>
+      <ul id="calendar">
+        <div v-for="objetcalendar in calendar">
+          <div v-if="objetcalendar.type==='month'"
+               v-bind:id="objetcalendar.monthShortName"
+               ref="month"
+               class="month">
+            <div :class="objetcalendar.background"
+                 class="backgroundDisplay">
+              <span class="spanEmptyMonth"></span>
+              <div class="blockText">
+                <p class="textmonth">
+                  {{objetcalendar.textMonth.firstText}}
+                  <span class="blacktext">{{objetcalendar.textMonth.secondText}}</span>
+                  {{objetcalendar.textMonth.thirdText}}
+                </p>
+              </div>
+              <span class="spanEmptyMonth"></span>
+            </div>
+          </div>
+          <div class="week"
+               v-if="objetcalendar.type==='week'">
+            <div class="day">
+            </div>
+            <div class="weekDisplay">
+              {{objetcalendar.beginWeek}} - {{objetcalendar.endWeek}} {{objetcalendar.month}}
+            </div>
+          </div>
+
+          <li class="dayLi"
+              v-if="objetcalendar.type==='day' && objetcalendar.firstDisplayDay==='on' ">
+            <div class="day">
+              <div class="dayName">
+                {{objetcalendar.dayShortName}}
+              </div>
+              <div class="dayDate">
+                {{objetcalendar.dayNumberString}}/{{objetcalendar.monthNumberString}}
+              </div>
+            </div>
+            <div v-bind:class="objetcalendar.slot.backgroundColor"
+                 class="hours ">
+              <div class="contenuHours emojiHours emojileft">{{objetcalendar.slot.emojiBegin}}</div>
+              <div class="contenuHours hourleft">{{objetcalendar.slot.beginHourString}}:{{objetcalendar.slot.beginMinutesString}}</div>
+              <div class="contenuHours hourright">{{objetcalendar.slot.endHourString}}:{{objetcalendar.slot.endMinutesString}}</div>
+              <div class="contenuHours emojiHours emojiright">{{objetcalendar.slot.emojiEnd}}</div>
+            </div>
+          </li>
+          <li class="dayLi"
+              v-if="objetcalendar.type==='day' && objetcalendar.firstDisplayDay==='off' ">
+            <div class="day">
+            </div>
+            <div v-bind:class="objetcalendar.slot.backgroundColor"
+                 class="hours shift">
+              <div class="contenuHours emojiHours emojileft">{{objetcalendar.slot.emojiBegin}}</div>
+              <div class="contenuHours hourleft">{{objetcalendar.slot.beginHourString}}:{{objetcalendar.slot.beginMinutesString}}</div>
+              <div class="contenuHours hourright">{{objetcalendar.slot.endHourString}}:{{objetcalendar.slot.endMinutesString}}</div>
+              <div class="contenuHours emojiHours emojiright">{{objetcalendar.slot.emojiEnd}}</div>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

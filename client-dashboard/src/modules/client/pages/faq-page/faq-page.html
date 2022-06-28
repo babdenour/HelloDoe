@@ -1,0 +1,25 @@
+<div class="faq-page">
+  <hd-info-page-layout :list-card="listCard"
+                       :page-description="pageDescription"
+                       @card-clicked="handleCardClicked"
+                       data-test-id="info-page-layout">
+  </hd-info-page-layout>
+
+  <hd-sponso-my-ad-dialog :mission-code="missionCode"
+                          :client-first-name="clientFirstName"
+                          :client-email="clientEmail"
+                          :open.sync="isSponsoMyAddDialogOpen"
+                          data-test-id="sponso-my-ad-dialog">
+  </hd-sponso-my-ad-dialog>
+
+  <hd-boost-my-ad-dialog :mission-code="missionCode"
+                         :client-first-name="clientFirstName"
+                         :client-email="clientEmail"
+                         :open.sync="isBoostMyAddDialogOpen"
+                         data-test-id="boost-my-ad-dialog">
+  </hd-boost-my-ad-dialog>
+
+  <hd-help-dialog :open.sync="isHelpDialogOpen"
+                  data-test-id="help-dialog">
+  </hd-help-dialog>
+</div>

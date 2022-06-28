@@ -1,0 +1,51 @@
+<el-form class="quick-replies-message-form"
+         :model="form"
+         :rules="rules"
+         ref="form">
+
+  <h6 data-test-id="question-title">{{i18n.questionTitle}}</h6>
+  <el-form-item prop="text">
+    <el-input v-model="form.text"
+              :placeholder="i18n.questionExample"></el-input>
+  </el-form-item>
+
+  <h6 data-test-id="choices-title">{{i18n.choicesTitle}}</h6>
+  <div v-for="(choice, choiceIdx) in form.choices"
+       :key="choiceIdx">
+    <el-row :gutter="24">
+      <el-col :span="7">
+        <el-form-item :prop="`choices.${choiceIdx}.text`"
+                      :rules="rules.choiceText">
+          <el-input v-model="choice.text"
+                    :maxlength="quickReplyMaxLength"
+                    show-word-limit
+                    :placeholder="i18n.answerExample"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="15">
+        <el-slider v-model="choice.score"
+                   show-stops
+                   :min="scoreMin"
+                   :max="scoreMax"
+                   :step="1"></el-slider>
+      </el-col>
+      <el-col v-if="canDeleteQuickReply"
+              :span="2">
+        <el-button type="danger"
+                   icon="el-icon-delete"
+                   plain
+                   circle
+                   @click="removeChoice(choiceIdx)"
+                   data-test-id="remove-choice-button"></el-button>
+      </el-col>
+    </el-row>
+  </div>
+  <el-button class="quick-replies-message-form__add-choice-button"
+             type="primary"
+             plain
+             @click="addChoice"
+             data-test-id="add-choice-button">
+    <i class="el-icon-plus"></i> {{i18n.choiceAdd}}
+  </el-button>
+
+</el-form>

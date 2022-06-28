@@ -1,0 +1,136 @@
+<div class="candidate-list"
+     v-hd-infinite-scroll="emitScrolledToBottomEvent"
+     :hd-infinite-scroll-disabled="!hasMoreCandidates">
+  <div class="candidate-list-title-status"
+       :ref="refUnlocked"
+       data-test-id="title-unlocked">{{i18n.UNLOCKED}}
+    <hd-emoji class="candidate-list__title__emoji"
+              size="19px"
+              name="white-heavy-check-mark">
+    </hd-emoji>
+    <span class="spacer"></span>
+    <hd-chip :text="candidatesUnlockedCount"></hd-chip>
+  </div>
+  <hd-candidate-list-item class="candidate-list__candidate-item"
+                          v-for="candidate in candidatesUnlocked"
+                          :first-name="candidate.firstName"
+                          :age="candidate.age"
+                          :score="candidate.score"
+                          :img-url="getCandidateImgUrl(candidate)"
+                          :status="candidate.status"
+                          :phone-number="candidate.contactInformation.phone"
+                          :is-selected="isCandidateSelected(candidate.id)"
+                          @candidate-selected="emitCandidateSelected"
+                          @click.native="emitCandidateSelected(candidate.id)"
+                          :ref="candidate.id"
+                          data-test-id="candidate-list-item"> </hd-candidate-list-item>
+
+  <div class="candidate-list-title-status"
+       :ref="refFavorite"
+       data-test-id="title-favorite"> {{i18n.FAVORITE}}
+    <hd-emoji class="candidate-list__title__emoji"
+              size="19px"
+              name="heavy-black-heart">
+    </hd-emoji>
+    <span class="spacer"></span>
+    <hd-chip :text="candidatesFavoriteCount"></hd-chip>
+  </div>
+  <hd-action-list-item class="candidate-list-title-status__action-button"
+                       :title="i18n.paiementCardTitle"
+                       :sub-title="i18n.paiementCardSubTitle"
+                       @click.native="emitRedirectToCheckout"
+                       data-test-id="action-list-item-redirect-to-checkout">
+    <template #icon>
+      <hd-emoji size="40px"
+                name="credit-card">
+      </hd-emoji>
+    </template>
+  </hd-action-list-item>
+  <hd-candidate-list-item class="candidate-list__candidate-item"
+                          v-for="candidate in candidatesFavorite"
+                          :first-name="candidate.firstName"
+                          :age="candidate.age"
+                          :score="candidate.score"
+                          :img-url="getCandidateImgUrl(candidate)"
+                          :status="candidate.status"
+                          :phone-number="candidate.contactInformation.phone"
+                          :is-selected="isCandidateSelected(candidate.id)"
+                          @candidate-selected="emitCandidateSelected"
+                          @set-candidate-favorite="emitSetCandidateFavorite(candidate.id)"
+                          @click.native="emitCandidateSelected(candidate.id)"
+                          :ref="candidate.id"
+                          data-test-id="candidate-list-item"> </hd-candidate-list-item>
+
+  <div class="candidate-list-title-status"
+       :ref="refSuggested"
+       data-test-id="title-suggested"> {{i18n.SUGGESTED}}
+    <hd-emoji class="candidate-list__title__emoji"
+              size="19px"
+              name="right-pointing-magnifying-glass">
+    </hd-emoji>
+    <span class="spacer"></span>
+    <hd-chip :text="candidatesPreselectedCount"></hd-chip>
+  </div>
+  <hd-candidate-list-item class="candidate-list__candidate-item"
+                          v-for="candidate in candidatesPreselected"
+                          :first-name="candidate.firstName"
+                          :age="candidate.age"
+                          :score="candidate.score"
+                          :img-url="getCandidateImgUrl(candidate)"
+                          :status="candidate.status"
+                          :phone-number="candidate.contactInformation.phone"
+                          :is-selected="isCandidateSelected(candidate.id)"
+                          :is-seen="isCandidateSeen(candidate)"
+                          @candidate-selected="emitCandidateSelected"
+                          @set-candidate-favorite="emitSetCandidateFavorite(candidate.id)"
+                          @click.native="emitCandidateSelected(candidate.id)"
+                          :ref="candidate.id"
+                          data-test-id="candidate-list-item"> </hd-candidate-list-item>
+  <hd-action-list-item class="candidate-list-title-status__action-button bottom"
+                       :title="i18n.sponsorAdCardTitle"
+                       :sub-title="i18n.sponsorAdCardSubtitle"
+                       @click.native="emitSponsorMyAd"
+                       data-test-id="action-list-item-sponsor-my-ad">
+    <template #icon>
+      <hd-emoji size="40px"
+                name="cheering-megaphone">
+      </hd-emoji>
+    </template>
+  </hd-action-list-item>
+  <div class="candidate-list-title-status"
+       :ref="refOthers"
+       data-test-id="title-other">{{i18n.OTHER}}
+    <hd-emoji class="candidate-list__title__emoji"
+              size="19px"
+              name="bookmark-tabs">
+    </hd-emoji>
+    <span class="spacer"></span>
+    <hd-chip :text="candidatesOthersCount"></hd-chip>
+  </div>
+  <hd-action-list-item class="candidate-list-title-status__action-button bottom"
+                       :title="i18n.boostAdCardTitle"
+                       :sub-title="i18n.boostAdCardSubtitle"
+                       @click.native="emitBoostMyAd"
+                       data-test-id="action-list-item-boost-my-ad">
+    <template #icon>
+      <hd-emoji size="40px"
+                name="high-voltage-sign">
+      </hd-emoji>
+    </template>
+  </hd-action-list-item>
+  <hd-candidate-list-item class="candidate-list__candidate-item"
+                          v-for="candidate in candidatesOthers"
+                          :first-name="candidate.firstName"
+                          :age="candidate.age"
+                          :score="candidate.score"
+                          :img-url="getCandidateImgUrl(candidate)"
+                          :status="candidate.status"
+                          :phone-number="candidate.contactInformation.phone"
+                          :is-selected="isCandidateSelected(candidate.id)"
+                          :is-seen="isCandidateSeen(candidate)"
+                          @candidate-selected="emitCandidateSelected"
+                          @click.native="emitCandidateSelected(candidate.id)"
+                          @set-candidate-favorite="emitSetCandidateFavorite(candidate.id)"
+                          :ref="candidate.id"
+                          data-test-id="candidate-list-item"> </hd-candidate-list-item>
+</div>

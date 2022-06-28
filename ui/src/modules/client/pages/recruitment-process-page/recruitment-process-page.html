@@ -1,0 +1,19 @@
+<div class="recruitment-process-page">
+  <hd-info-page-layout :list-card="listCard"
+                       @card-clicked="saveCardClicked"
+                       :page-description="pageDescription"
+                       data-test-id="info-page-layout"></hd-info-page-layout>
+
+  <hd-dialog :open.sync="isDialogOpen"
+             width="33%"
+             data-test-id="recruitment-process-dialog">
+    <hd-card-dialog :title="cardDialogInfo.title"
+                    :description="cardDialogInfo.description"
+                    :cta="cardDialogInfo.cta"
+                    :options="cardDialogInfo.options"
+                    :icon-src="cardDialogInfo.iconSrc"
+                    @cta-clicked="handleCardDialogCtaClicked"
+                    data-test-id="card-dialog"></hd-card-dialog>
+  </hd-dialog>
+
+</div>

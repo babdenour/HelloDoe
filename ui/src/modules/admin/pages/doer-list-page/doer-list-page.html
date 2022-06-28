@@ -1,0 +1,30 @@
+<hd-page title="Doers"
+         :menu="menu">
+  <Broadcast />
+
+  <template>
+    <Loader v-if="fetchingDoers" />
+    <div v-else
+         class="doers">
+      <Doer v-for="doer in doers"
+            :key="doer._id"
+            :doer="doer" />
+
+      <div class="doers-actions">
+        <el-button type="primary"
+                   @click="previousPage"
+                   :disabled="page === 0">
+          <i class="el-icon-arrow-left" />
+          <span>Page précédente</span>
+        </el-button>
+        <span>{{ page + 1 }} / {{ nbPages }}</span>
+        <el-button type="primary"
+                   @click="nextPage"
+                   :disabled="page === nbPages - 1">
+          <span>Page suivante</span>
+          <i class="el-icon-arrow-right" />
+        </el-button>
+      </div>
+    </div>
+  </template>
+</hd-page>

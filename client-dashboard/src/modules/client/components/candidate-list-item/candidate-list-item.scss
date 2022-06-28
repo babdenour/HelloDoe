@@ -1,0 +1,87 @@
+@import 'colors.scss';
+
+.candidate-list-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 6px;
+  padding: 19px 0;
+
+  &--selected {
+    &:hover {
+      transition: all 0.2s ease;
+    }
+
+    background-color: #111;
+
+    .candidate-list-item {
+      &-infos {
+        &-top {
+          color: #f9fafb;
+        }
+
+        &-bottom {
+          color: #f9fafb;
+        }
+      }
+    }
+  }
+
+  &--seen {
+    opacity: 0.5;
+  }
+
+  &__image .img {
+    margin-left: 16px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__icon {
+    display: flex;
+    margin-right: 16px;
+
+    &__heart-button {
+      width: 18px;
+    }
+  }
+
+  &__infos {
+    &__emoji {
+      margin-right: 6px;
+    }
+  }
+
+  &-infos {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+
+    &-top {
+      font-weight: bold;
+      line-height: 20px;
+      font-size: 16px;
+      color: black;
+    }
+
+    &-bottom {
+      display: flex;
+      align-items: center;
+      font-weight: 300;
+      font-size: 16px;
+      color: #6a6a6a;
+    }
+  }
+
+  .spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &:hover {
+    transition: all 0.2s ease;
+  }
+}

@@ -1,0 +1,58 @@
+.info-card {
+  background: linear-gradient(86.31deg, #fff8fd 0%, #e8f7ff 55.73%, #fff8f4 100%);
+  border-radius: 12px;
+  padding: 32px 24px;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    padding: 6px 12px;
+    background: #fdfdfd;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 22px;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+
+    &__emoji {
+      margin-left: 6px;
+    }
+  }
+
+  &__description {
+    margin-top: 24px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+  }
+
+  &__button {
+    margin-top: 45px;
+    font-size: 14px;
+    line-height: 21px;
+    border-bottom: 1px solid #111;
+    width: fit-content;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 500;
+    }
+  }
+
+  .spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}

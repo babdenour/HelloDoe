@@ -1,0 +1,19 @@
+* {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+}
+
+.root-page {
+  height: 100vh;
+  display: flex;
+
+  &__page-menu {
+    display: flex;
+    flex: 1;
+  }
+
+  &__page {
+    display: flex;
+    flex: 3;
+  }
+}

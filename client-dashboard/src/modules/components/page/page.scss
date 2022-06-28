@@ -1,0 +1,66 @@
+@import 'colors.scss';
+
+.page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+
+  &__main-frame {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:not(.el-menu--collapse) {
+      width: 200px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: 0 5px 5px $grey;
+
+    &__title {
+      flex-shrink: 0;
+      flex-basis: auto;
+    }
+
+    &__actions {
+      flex-shrink: 0;
+    }
+  }
+
+  &__menu-collapser {
+    display: flex;
+    flex: 0;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-size: 22px;
+    height: 40px;
+    min-width: 40px;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}

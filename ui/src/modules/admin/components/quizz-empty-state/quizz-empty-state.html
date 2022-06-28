@@ -1,0 +1,11 @@
+<div class="quizz-empty-state">
+  <div class="quizz-empty-state__content">
+    <h1><i class="el-icon-chat-round"></i></h1>
+    <h5>Pas de quizz à l'horizon</h5>
+    <p>Ajoutez un quizz à votre mission pour présélectionner les candidats</p>
+    <el-button type="primary"
+               :loading="loading"
+               @click="emitCreateQuizz"
+               data-test-id="create-button">Créer un quizz</el-button>
+  </div>
+</div>

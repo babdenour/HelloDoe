@@ -1,0 +1,25 @@
+@import 'colors.scss';
+@import 'social-media-post-templates.scss';
+
+.mission-com-page {
+  &__content {
+    > *:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__actions {
+    margin-top: 12px;
+  }
+
+  &__description-to-copy {
+    margin-top: 12px;
+  }
+}

@@ -1,0 +1,60 @@
+<el-dialog width="50%"
+           :visible="show"
+           @update:visible="emitClose">
+  <div class="question-search-dialog__body">
+    <el-row class="question-search-dialog__search-bar"
+            :gutter="16">
+      <el-col :span="8">
+        <el-select class="question-search-dialog__tag-select"
+                   v-model="form.tag"
+                   filterable
+                   :placeholder="i18n.tags"
+                   :no-match-text="i18n.noOptions"
+                   :no-data-text="i18n.noOptions"
+                   @change="fetchQuestionsByTag"
+                   data-test-id="tag-select">
+          <el-option v-for="tag in tags"
+                     :key="tag"
+                     :label="tag"
+                     :value="tag"></el-option>
+        </el-select>
+      </el-col>
+      <el-col :span="16">
+        <el-input v-if="false"
+                  v-model="form.search"
+                  clearable
+                  :placeholder="i18n.filterKeywords">
+          <el-button slot="append"
+                     icon="el-icon-search"></el-button>
+        </el-input>
+      </el-col>
+    </el-row>
+
+    <div class="question-search-dialog__questions"
+         v-if="hasQuestions">
+      <el-card class="question-search-dialog__question"
+               v-for="displayedQuestion in displayedQuestions"
+               :class="{ selected: displayedQuestion.selected }"
+               :key="displayedQuestion.id"
+               shadow="never">
+        <div slot="default"
+             class="question-search-dialog__question-body">
+          <el-checkbox class="question-search-dialog__question-checkbox"
+                       v-model="displayedQuestion.selected"
+                       @change="toggleSelect(displayedQuestion.question)"
+                       data-test-id="question-checkbox"></el-checkbox>
+          <hd-question-preview :question="displayedQuestion.question"></hd-question-preview>
+        </div>
+      </el-card>
+    </div>
+  </div>
+
+  <template #footer>
+    <el-button type="primary"
+               :disabled="!hasSelectedQuestions"
+               @click="emitQuestions"
+               data-test-id="add-button">
+      {{addButtonText}}
+    </el-button>
+  </template>
+</el-dialog>

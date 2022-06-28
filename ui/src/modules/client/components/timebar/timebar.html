@@ -1,0 +1,11 @@
+<div class="timebar">
+  <div v-for="(timebar, idx) in displayableTimebars"
+       class="timebar__bar"
+       @click="updateVideoTime($event, idx)"
+       data-test-id="bar">
+    <div class="timebar__progress"
+         :style="timebar.style"
+         ref="bar"
+         data-test-id="progress"></div>
+  </div>
+</div>

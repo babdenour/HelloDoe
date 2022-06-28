@@ -1,0 +1,39 @@
+$yellow: #ffc107;
+$red: red;
+
+.logger {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  &__indicator {
+    font-weight: bold;
+    background-color: #000a;
+    padding: 16px;
+    border-radius: 12px;
+    animation: bounce 0.7s ease infinite;
+
+    &--error {
+      color: $red;
+    }
+
+    &--warning {
+      color: $yellow;
+    }
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}

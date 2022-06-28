@@ -1,0 +1,92 @@
+<div @scroll="scrollMonthNav"
+     class="mission-webview-page"
+     ref="host">
+
+  <div class="mission-webview-page__scroll-menu"
+       ref="nav">
+    <a class="mission-webview-page__scroll-menu__menu-option emojiDate"> 📅</a>
+    <a v-for="month in displayedMonthNames"
+       class="mission-webview-page__scroll-menu__menu-option"
+       :class="{'buttonOn': activeMonthIdx === month.index}"
+       :ref="buildMonthNavHtmlId(month.index)"
+       @click="selectActiveMonth(month.index)">{{month.nameI18n}}</a>
+  </div>
+
+  <div class="containerCalendar">
+
+    <div class="bulle">
+      <div class="logoHello">
+        <img class="imageHello"
+             :src="logoHelloDoe"
+             alt="mainImage" />
+      </div>
+      <div class="intro">
+        <div class="textintro">
+          <div>{{i18n.missionCategory}} {{i18n.missionEmoji}}</div>
+          <div>Voici les dates et horaires de ta mission.</div>
+        </div>
+      </div>
+    </div>
+
+    <ul id="calendar">
+      <div v-for="item of calendar">
+        <div v-if="item.type==='month'"
+             :ref="buildMonthHtmlId(item.index)"
+             class="month">
+          <div :class="item.background"
+               class="backgroundDisplay">
+            <span class="spanEmptyMonth"></span>
+            <div class="blockText">
+              <p class="textmonth">
+                {{item.textMonth.firstText}}
+                <span class="blacktext">{{item.textMonth.secondText}}</span>
+                {{item.textMonth.thirdText}}
+              </p>
+            </div>
+            <span class="spanEmptyMonth"></span>
+          </div>
+        </div>
+        <div class="week"
+             v-if="item.type==='week'">
+          <div class="day">
+          </div>
+          <div class="weekDisplay">
+            {{item.beginWeek}} - {{item.endWeek}} {{item.month}}
+          </div>
+        </div>
+
+        <li class="dayLi"
+            v-if="item.type==='day' && item.firstDisplayDay==='on' ">
+          <div class="day">
+            <div class="dayName">
+              {{item.dayShortName}}
+            </div>
+            <div class="dayDate">
+              {{item.dayNumberString}}/{{item.monthNumberString}}
+            </div>
+          </div>
+          <div :class="item.slot.backgroundColor"
+               class="hours ">
+            <div class="contenuHours emojiHours emojileft">{{item.slot.emojiBegin}}</div>
+            <div class="contenuHours hourleft">{{item.slot.beginHourString}}:{{item.slot.beginMinutesString}}</div>
+            <div class="contenuHours hourright">{{item.slot.endHourString}}:{{item.slot.endMinutesString}}</div>
+            <div class="contenuHours emojiHours emojiright">{{item.slot.emojiEnd}}</div>
+          </div>
+        </li>
+        <li class="dayLi"
+            v-if="item.type==='day' && item.firstDisplayDay==='off' ">
+          <div class="day">
+          </div>
+          <div :class="item.slot.backgroundColor"
+               class="hours shift">
+            <div class="contenuHours emojiHours emojileft">{{item.slot.emojiBegin}}</div>
+            <div class="contenuHours hourleft">{{item.slot.beginHourString}}:{{item.slot.beginMinutesString}}</div>
+            <div class="contenuHours hourright">{{item.slot.endHourString}}:{{item.slot.endMinutesString}}</div>
+            <div class="contenuHours emojiHours emojiright">{{item.slot.emojiEnd}}</div>
+          </div>
+        </li>
+      </div>
+    </ul>
+
+  </div>
+</div>

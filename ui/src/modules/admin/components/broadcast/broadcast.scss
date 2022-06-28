@@ -1,0 +1,43 @@
+@import 'colors.scss';
+
+.broadcast {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    &-inputs {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+  }
+
+  &__quick-replies {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 12px;
+
+    > *:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
+
+  &__add-quick-reply {
+    align-self: center;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+  }
+}

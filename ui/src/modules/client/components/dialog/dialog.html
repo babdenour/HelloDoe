@@ -1,0 +1,17 @@
+<portal v-if="open"
+        to="dialog">
+  <div class="dialog"
+       :style="hostStyle">
+    <div class="dialog__mask"
+         @click="closeDialog"
+         data-test-id="dialog-mask">
+    </div>
+    <div class="dialog__dialog-content">
+      <div class="dialog__dialog-content__close-box"
+           @click="closeDialog">
+        <i class="fa fa-times dialog__dialog-content__close-box-cross"></i>
+      </div>
+      <slot></slot>
+    </div>
+  </div>
+</portal>

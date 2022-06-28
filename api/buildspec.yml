@@ -1,0 +1,68 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12.x
+    commands:
+      - echo Building branch $CODEBUILD_WEBHOOK_HEAD_REF
+
+      - echo Starting Docker Daemon
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+
+      - echo Logging To DockerHub
+      - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+
+      - echo Pulling Mongodb Image
+      - docker pull mongo:4.2-bionic
+
+      - echo Installing Dependencies
+      - npm install
+  pre_build:
+    commands:
+      - echo Running Mongodb
+      - docker run -d -p 27017:27017 mongo:4.2-bionic
+  build:
+    commands:
+      - echo Build Started On `date`
+      - npm run build
+
+      - echo Test Api
+      - npm run test
+      - npm run test:e2e
+
+      - |
+        if [ "$CODEBUILD_WEBHOOK_HEAD_REF" = "refs/heads/master" ] || [ "$CODEBUILD_WEBHOOK_HEAD_REF" = "refs/heads/develop" ]; then
+          echo Building Docker Image
+          
+          if [ "$CODEBUILD_WEBHOOK_HEAD_REF" = "refs/heads/master" ]; then
+            export ECR_ARN=$ECR_ARN_PROD
+            export ECR_REPO_NAME=$ECR_REPO_NAME_PROD
+            export IMG_TAG=$IMG_TAG_PROD
+
+          else
+            export ECR_ARN=$ECR_ARN_STAGING
+            export ECR_REPO_NAME=$ECR_REPO_NAME_STAGING
+            export IMG_TAG=$IMG_TAG_STAGING
+          fi
+          
+          docker build -t $ECR_REPO_NAME:$IMG_TAG .
+          docker tag $ECR_REPO_NAME:$IMG_TAG $ECR_ARN:$IMG_TAG
+          rm Dockerfile
+
+          echo Pushing Docker Image
+          aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+          docker push $ECR_ARN:$IMG_TAG
+        fi
+  post_build:
+    commands:
+      - echo Build Completed On `date`
+
+reports:
+  jest_reports:
+    files:
+      - jest-e2e.xml
+      - jest-unit.xml
+    file-format: JUNITXML
+    base-directory: ./reports

@@ -1,0 +1,11 @@
+<div class="card-wrapper">
+  <div class="card-date"
+       v-for="(card, idx) in cards"
+       :key="idx">
+    <div class="day-name">{{ getDayName(card.date) }}</div>
+    <div class="day">{{ getDay(card.date) }}</div>
+    <div class="day-name">{{ getMonthName(card.date) }}</div>
+    <div class="separator"></div>
+    <div class="hours">{{ card.timeBegin }} à {{ card.timeEnd }}</div>
+  </div>
+</div>

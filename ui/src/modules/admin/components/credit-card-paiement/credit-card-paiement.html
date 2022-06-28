@@ -1,0 +1,65 @@
+<div id="host"
+     class="mx-auto py-4">
+  <div class="row m-0 p-0">
+    <div class="ligne w-100">
+      <div class="col-sm-8">Coût horaire</div>
+      <div class="col-sm-4 text-right">{{ hourlyEarningWithCommission }} €/h</div>
+    </div>
+    <div class="w-100"></div>
+    <div class="ligne w-100">
+      <div class="col-sm-8">x Nombre d'étudiants</div>
+      <div class="col-sm-4 text-right">{{ missionNbWorkers }} x&nbsp;&nbsp;</div>
+    </div>
+    <div class="w-100"></div>
+    <div class="ligne w-100">
+      <div class="col-sm-8">x Temps de travail (en heures)</div>
+      <div class="col-sm-4 text-right">{{ workDuration }} x&nbsp;&nbsp;</div>
+    </div>
+    <div class="w-100"></div>
+    <div class="total ligne w-100">
+      <div class="col-sm-8">
+        <strong>= Total</strong>
+      </div>
+      <div class="col-sm-4 text-right">
+        <strong>{{ total }} €&nbsp;&nbsp;</strong>
+      </div>
+    </div>
+    <div class="w-100"></div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-light"
+            :disabled="retrievingToken"
+            @click="previousStep">
+      <i class="fas fa-chevron-left"></i> Étape précédente
+    </button>
+    <button class="btn btn-primary"
+            :disabled="(!complete || retrievingToken) && payable"
+            @click="retrieveToken">
+      <app-loader :size="'small'"
+                  v-if="retrievingToken"></app-loader>
+      <span v-else> <i class="fas fa-credit-card"></i> &nbsp; Payer </span>
+    </button>
+  </div>
+  <div class="p-3 text-danger"
+       v-if="errorMsg !== null">{{ errorMsg }}</div>
+  <div class="nota-bene">
+    <h2>Pourquoi régler en amont de la mission ?</h2>
+    <h4>
+      <b>Afin de vous garantir un dynamisme</b> sans égal de la part de nos travailleurs, nous
+      rémunérons ceux ayant obtenu une note supérieure à 4/5<b> sous 48 heures</b>. Le paiement à
+      la publication de la mission permet de leur garantir cette rapidité de paiement.
+    </h4>
+    <h4>
+      Dans le cas où la mission n'aurait pas lieu, nous procéderons à un remboursement intégral,
+      <b>comme stipulé dans <a href="https://hellodoe.co/#/cgu">nos conditions générales</a>.</b>
+    </h4>
+    <h4>
+      Si les horaires & dates de votre mission sont flexibles, ou
+      <b>si vous préférez mettre en place un paiement post-mission, veuillez
+        <a href="mailto:lucas@hellodoe.co">nous contacter</a></b>. Nos équipes se chargeront de poster votre mission, et
+      <b>vous recevrez les factures</b> correspondant aux horaires déclarés par les Doers
+      <b>à chaque fin de semaine.</b>
+    </h4>
+  </div>
+</div>

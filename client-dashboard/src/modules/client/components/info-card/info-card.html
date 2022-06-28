@@ -1,0 +1,16 @@
+<div class="info-card">
+  <div v-if="labelOn"
+       class="info-card__label">{{label}}</div>
+  <div class="info-card__title">{{title}}
+    <hd-emoji class="info-card__title__emoji"
+              v-if="emojiNameTitle"
+              size="19px"
+              :name="emojiNameTitle">
+    </hd-emoji>
+  </div>
+  <div class="info-card__description">{{description}}</div>
+  <span class="spacer"></span>
+  <div class="info-card__button"
+       @click="ctaClicked"
+       data-test-id="cta-info-card">{{button}}</div>
+</div>

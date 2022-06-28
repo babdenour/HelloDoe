@@ -1,0 +1,12 @@
+<hd-dialog :open="open"
+           @update:open="updateOpen"
+           width="33%">
+  <hd-card-dialog :title="cardDialogInfo.title"
+                  :description="cardDialogInfo.description"
+                  :cta="cardDialogInfo.cta"
+                  :options="cardDialogInfo.options"
+                  :icon-src="cardDialogInfo.iconSrc"
+                  @cta-clicked="handleCardDialogCtaClicked"
+                  data-test-id="card-dialog">
+  </hd-card-dialog>
+</hd-dialog>

@@ -1,0 +1,28 @@
+<hd-page class="mission-quizz-page"
+         title="Quizz"
+         :menu="menu">
+  <div class="mission-quizz-page__content"
+       v-loading="fetchingForFirstTime">
+
+    <hd-quizz-empty-state v-if="!hasQuizz"
+                          :loading="savingQuizz"
+                          @create-quizz="createQuizz"
+                          data-test-id="quizz-empty-state"></hd-quizz-empty-state>
+
+    <div class="mission-quizz-page__form-wrapper"
+         v-else>
+      <hd-quizz-form :quizz="quizz"
+                     :questions="questions"
+                     ref="quizzForm"></hd-quizz-form>
+    </div>
+
+    <div class="mission-quizz-page__actions"
+         v-if="hasQuizz">
+      <el-button type="primary"
+                 :loading="savingQuizz"
+                 @click="saveQuizz"
+                 data-test-id="save-quizz-button">{{i18n.save}}</el-button>
+    </div>
+
+  </div>
+</hd-page>

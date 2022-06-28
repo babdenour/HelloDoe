@@ -1,0 +1,12 @@
+<div class="video-cv-list"
+     ref="host">
+  <hd-image-aspect-ratio v-for="cv of displayableCvList"
+                         class="video-cv-list__thumbnail"
+                         :class="cv.cssClasses"
+                         :src="cv.imgUrl"
+                         :aspect-ratio="aspectRatio"
+                         :height="thumbnailHeight"
+                         @click.native="selectCv(cv.id)"
+                         data-test-id="thumbnail">
+  </hd-image-aspect-ratio>
+</div>

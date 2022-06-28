@@ -1,0 +1,13 @@
+<div class="info-page-layout">
+  <div class="info-page-layout__page-description"> {{pageDescription}}</div>
+  <div class="info-page-layout__card-gallery">
+    <hd-info-card v-for="card in listCard"
+                  :label="card.label"
+                  :title="card.title "
+                  :description="card.description"
+                  :emoji-name-title="card.emojiNameTitle"
+                  :button="card.button"
+                  @cta-clicked="emitCardClickedEvent(card.ctaId)"
+                  data-test-id="info-card"></hd-info-card>
+  </div>
+</div>

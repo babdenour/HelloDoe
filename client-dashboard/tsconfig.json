@@ -1,0 +1,75 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "built/",
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "es5",
+    "downlevelIteration": true,
+    "paths": {
+      "@api/*": [
+        "src/api/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@converters/*": [
+        "src/converters/*"
+      ],
+      "@domains/*": [
+        "src/domains/*"
+      ],
+      "@factories/*": [
+        "src/factories/*"
+      ],
+      "@libs/*": [
+        "src/libs/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@store": [
+        "src/store"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@assets/*": [
+        "src/modules/assets/*"
+      ],
+      "@components/*": [
+        "src/modules/components/*"
+      ],
+      "@client/*": [
+        "src/modules/client/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "types/*",
+    ".eslintrc.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

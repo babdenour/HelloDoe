@@ -1,0 +1,44 @@
+.candidate-list {
+  overflow: auto;
+  padding: 20px;
+
+  &__candidate-item {
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &-title-status {
+    margin-bottom: 16px;
+    margin-top: 32px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    color: #111;
+
+    &__action-button {
+      &:hover {
+        cursor: pointer;
+        box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+  .bottom {
+    margin-top: 8px;
+  }
+
+  .spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}

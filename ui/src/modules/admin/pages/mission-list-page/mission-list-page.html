@@ -1,0 +1,27 @@
+<hd-page title="Toutes les missions"
+         :menu="menu">
+  <div id="overlay"
+       class="overlay-mission-creation">
+    <a href="javascript:void(0)"
+       class="overlay-close-btn"
+       @click="closeNav">&times;</a>
+    <div class="overlay-content mx-auto">
+      <hd-mission-creation-process :payable="false"></hd-mission-creation-process>
+    </div>
+  </div>
+
+  <app-loader v-if="fetchingMissions"></app-loader>
+  <div v-else>
+    <div class="content-actions">
+      <el-button icon="el-icon-plus"
+                 @click="openNav">
+        Créer une mission
+      </el-button>
+    </div>
+    <div class="content-missions">
+      <hd-mission v-for="mission in missions"
+                  :key="mission.id"
+                  :mission="mission"></hd-mission>
+    </div>
+  </div>
+</hd-page>

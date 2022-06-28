@@ -1,0 +1,35 @@
+<div class="candidates-page">
+  <div class="candidates-page__candidate-list-wrapper">
+    <hd-candidate-list :selected-candidate-id="selectedCandidateId"
+                       :candidates="listCandidate"
+                       :has-more-candidates="hasMoreCandidates"
+                       :hash="hashAnkor"
+                       @boost-my-ad="displayBoostMyAdDialog"
+                       @sponsor-my-ad="displaySponsorMyAdDialog"
+                       @candidate-selected="updateSelectedCandidateId"
+                       @redirect-to-checkout="redirectToCheckout"
+                       @set-candidate-favorite="setCandidateFavorite"
+                       @scrolled-to-bottom="fetchNextCandidatesPage"
+                       data-test-id="candidate-list"></hd-candidate-list>
+  </div>
+
+  <div class="candidates-page__candidate-video-cv-section-wrapper">
+    <hd-candidate-video-cv-section :candidate="selectedCandidate"
+                                   @next-candidate-selected="selectNextCandidate"
+                                   @previous-candidate-selected="selectPreviousCandidate"
+                                   @set-candidate-favorite="setCandidateFavorite"
+                                   data-test-id="candidate-video-cv-section"></hd-candidate-video-cv-section>
+  </div>
+  <hd-dialog :open.sync="isDialogOpen"
+             width="33%"
+             data-test-id="candidate-page-dialog">
+    <hd-card-dialog :title="cardDialogInfo.title"
+                    :description="cardDialogInfo.description"
+                    :cta="cardDialogInfo.cta"
+                    :options="cardDialogInfo.options"
+                    :icon-src="cardDialogInfo.iconSrc"
+                    @cta-clicked="handleCardDialogCtaClicked"
+                    data-test-id="card-dialog"></hd-card-dialog>
+  </hd-dialog>
+
+</div>

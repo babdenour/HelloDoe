@@ -1,0 +1,52 @@
+<div class="quizz-form">
+  <div class="quizz-form__questions">
+    <el-card class="quizz-form__question"
+             v-for="question in sortedQuestions"
+             :key="question.id"
+             shadow="hover">
+      <hd-question-preview :question="question"></hd-question-preview>
+
+      <el-dropdown class="quizz-form__question__actions"
+                   trigger="click"
+                   @command="handleQuestionAction">
+        <span class="el-dropdown-link">
+          <i class="el-icon-more"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item :command="{cmd: questionCmd.moveUp, payload: question.id}"
+                            icon="el-icon-top">{{i18n.moveUp}}</el-dropdown-item>
+          <el-dropdown-item :command="{cmd: questionCmd.moveDown, payload: question.id}"
+                            icon="el-icon-bottom">{{i18n.moveDown}}</el-dropdown-item>
+          <el-dropdown-item :command="{cmd: questionCmd.edit, payload: question.id}"
+                            icon="el-icon-edit"
+                            divided>{{i18n.edit}}</el-dropdown-item>
+          <el-dropdown-item :command="{cmd: questionCmd.delete, payload: question.id}"
+                            icon="el-icon-delete"
+                            divided>{{i18n.delete}}</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </el-card>
+  </div>
+
+  <div class="quizz-form__actions">
+    <el-button @click="openQuestionSearchDialog"
+               data-test-id="question-search-button">
+      <i class="el-icon-search"></i> {{i18n.searchQuestion}}
+    </el-button>
+    <el-button @click="openQuestionDialogCreate"
+               data-test-id="create-button">
+      <i class="el-icon-plus"></i> {{i18n.createQuestion}}
+    </el-button>
+  </div>
+
+  <hd-question-dialog-form :show="showQuestionDialog"
+                           :mode="questionFormMode"
+                           :edited-question="editedQuestion"
+                           @close="closeQuestionDialog"
+                           @question-saved="addQuestion"
+                           data-test-id="question-dialog-form"></hd-question-dialog-form>
+  <hd-question-search-dialog :show="showQuestionSearchDialog"
+                             @close="closeQuestioSearchnDialog"
+                             @questions-selected="addQuestions"
+                             data-test-id="question-search-dialog"></hd-question-search-dialog>
+</div>

@@ -1,0 +1,78 @@
+{
+  "actions": {
+    "apply": "Postuler",
+    "more-info": "En savoir +",
+    "other-missions": "Autres missions"
+  },
+  "flow": {
+    "application-process": {
+      "enter": {
+        "catch-phrase": {
+          "ACCESS_CONTROL": "Contrôle surprise 🤓",
+          "ADMIN_HELP": "La paperasse, ça te connait 📚",
+          "ANIMATION_DEMONSTRATION": "Tu nous fais une démo ? 🤸",
+          "ARGICULTURAL_EMPLOYEE": "On va réviser ton agriculture générale 🌻",
+          "BABY_SITTING": "C’est parti baby 👶",
+          "CASH_AND_CARRY": "Mate ta nouvelle caisse 💰",
+          "COMMERCIAL_PROSPECTING": "On se jette allô ☎️",
+          "CUSTOMER_SUPPORT": "Le client est roi 👑",
+          "DATA_ENTRY": "Un job dans lequel tu Excel 📊",
+          "DELIVERY": "Livréééé, délivréééé ❄️",
+          "DISH_WASHING": "Pas besoin de ton baptême de plongée 🤿",
+          "DONOR_RECRUITER": "Bonjour, vous auriez une minute ? ✋",
+          "FAST_FOOD": "Illico resto 🍔",
+          "HANDLING": "Si j’avais un marteau 🔨",
+          "HOST": "Tu vas passer ton temps hôtel 🛎️",
+          "HOST_VISITORS": "Bienvenue chez eux 🏠",
+          "INVENTORY": "On sait plus quoi inventaire 🤔",
+          "LABELING_STOCK": "Tu vas devenir stock 💪",
+          "LITTLE_HANDS": "Petites mains mais grand coeur ❤️",
+          "LUXURY_SALE": "Un job de luxe 💎",
+          "MOVING": "Tu vas faire un carton 🚚",
+          "ONLINE_SEARCH": "Ça va surfer 🌊",
+          "PACKING": "Emballé c’est posé 📦",
+          "SAlES_ASSISTANT": "Adjugé vendu 🤝",
+          "SELF_SERVICE_MERCHANDISING": "Le merchandising, t’en connais un rayon 👌",
+          "SERVICE": "Chaud devant ! 🍽️",
+          "STREET_MARKETING": "Des flyers comme s’il en pleuvait ☂️",
+          "TICKETING": "Tu as un ticket avec nous 🎫",
+          "VALET": "Tu as un rôle clé 🚗",
+          "WARDROBE": "Reste sur tes garde-robes 👗"
+        },
+        "quick-replies": {
+          "text": "Prêt(e) à postuler ?",
+          "choices": {
+            "0": "Oui",
+            "1": "Non"
+          }
+        }
+      }
+    }
+  },
+  "mission": {
+    "card": {
+      "subtitle": "📅 du {startDate} au {endDate} | ⏰ {hourlyVolumeAmount}h/{hourlyVolumeUnit} | 💰 {payAmount}€/{payUnit} | 📍 {zipCode}",
+      "subtitle-asap": "📅 {missionDuration}, ASAP | ⏰ {hourlyVolumeAmount}h/{hourlyVolumeUnit} | 💰 {payAmount}€/{payUnit} | 📍 {zipCode}",
+      "title": "{categoryEmoji} {category} - {contractType}"
+    },
+    "more-info": {
+      "mission-address": "📍 {address}, {zipCode}",
+      "overview": {
+        "contract": "📝 En {contractType} pendant {jobDuration}",
+        "hourly-volume": {
+          "defined": "⏰ {hourlyVolume}, commence {startDate}",
+          "flexible": "⏰ Le planning est flexible"
+        },
+        "job": "{companyName} recherche {doerCount} Doer"
+      },
+      "pay": {
+        "per-pay-unit": "💸 {payAmount}€/{payUnit}",
+        "recap-per-pay-unit": "💰 Soit {payAmount}€/{payUnit}",
+        "recap-total": "💰 Soit {payAmount}€ au total"
+      }
+    },
+    "tasks": {
+      "intro": "{companyName} a besoin de toi pour :"
+    }
+  }
+}

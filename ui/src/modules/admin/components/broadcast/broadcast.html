@@ -1,0 +1,56 @@
+<div class="broadcast">
+  <h5>Broadcast</h5>
+
+  <div class="broadcast__content">
+    <div class="broadcast-content-inputs">
+      <div class="broadcast-content-inputs-type">
+        <el-radio v-model="broadcastMessageType"
+                  label="TEXT">Texte</el-radio>
+        <el-radio v-model="broadcastMessageType"
+                  label="QUICK_REPLIES">Quick Replies</el-radio>
+      </div>
+      <el-input v-model="broadcastMessage"
+                placeholder="Message"
+                @keyup.enter="broadcast" />
+    </div>
+    <div class="broadcast__quick-replies"
+         v-if="isTypeQuickReplies()">
+      <el-row v-for="(qr, idx) in quickReplies"
+              :key="idx"
+              class="broadcast__quick-replies-element"
+              :gutter="12">
+        <el-col :span="12">
+          <el-input v-model="qr.title"
+                    placeholder="Titre" />
+        </el-col>
+        <el-col :span="11">
+          <el-input v-model="qr.payload"
+                    placeholder="Payload" />
+        </el-col>
+        <el-col :span="1">
+          <el-button type="danger"
+                     icon="el-icon-delete"
+                     circle
+                     @click="removeQuickReply(idx)">
+          </el-button>
+        </el-col>
+      </el-row>
+      <el-button class="broadcast__add-quick-reply"
+                 icon="el-icon-plus"
+                 @click="addQuickReply">
+        Ajouter une quick reply
+      </el-button>
+    </div>
+
+    <div class="broadcast__actions">
+      <el-button disabled
+                 type="primary"
+                 plain
+                 icon="el-icon-s-promotion"
+                 :loading="broadcasting"
+                 @click="broadcast">
+        Broadcaster
+      </el-button>
+    </div>
+  </div>
+</div>

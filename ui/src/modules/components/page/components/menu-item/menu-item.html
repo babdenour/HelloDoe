@@ -1,0 +1,29 @@
+<el-menu-item v-if="isItem"
+              :index="index"
+              :disabled="item.disabled"
+              @click="navigateTo(item.route)">
+  <i :class="item.icon"></i>
+  <span>{{item.title}}</span>
+</el-menu-item>
+
+<el-submenu v-else-if="isSubmenu"
+            :index="index">
+  <template #title>
+    <i :class="item.icon"></i>
+    <span>{{item.title}}</span>
+  </template>
+  <hd-menu-item v-for="(item, i) in children"
+                :key="item.title"
+                :item="item"
+                :index="`${index}-${i+1}`">
+  </hd-menu-item>
+</el-submenu>
+
+<el-menu-item-group v-else
+                    :title="item.title">
+  <hd-menu-item v-for="(item, i) in children"
+                :key="item.title"
+                :item="item"
+                :index="`${index}-${i+1}`">
+  </hd-menu-item>
+</el-menu-item-group>

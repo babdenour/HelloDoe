@@ -1,0 +1,20 @@
+.question-preview {
+  display: flex;
+  flex-direction: column;
+
+  &__summary {
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__tag-list {
+    > * {
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+}

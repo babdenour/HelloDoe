@@ -1,0 +1,18 @@
+<div class="mission-info-card background-color"
+     :style="hostStyle">
+  <div class="mission-info-card__image"><img :src="assetJob"
+         alt="logoJob" /> </div>
+  <div class="mission-info-card__infos ">
+    <div class="classic-background margins ">{{nbWorkers}}</div>
+    <div class="classic-background margins">{{i18n.cat}}</div>
+  </div>
+  <div class="mission-info-card__infos ">
+    <div class="classic-background margins ">Débute</div>
+    <div class="rounded classic-background margins ">{{beginAtDate}}</div>
+  </div>
+  <div class="mission-info-card__infos">
+    <div class="classic-background margins ">{{i18n.contractType}}</div>
+    <div class="classic-background margins ">{{paymentAmountText}} €</div>
+    <div class="classic-background margins ">/{{i18n.paymentUnit}}</div>
+  </div>
+</div>

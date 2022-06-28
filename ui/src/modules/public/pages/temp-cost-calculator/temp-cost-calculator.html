@@ -1,0 +1,285 @@
+<div id="host">
+  <div class="nav_container">
+    <div class="nav">
+      <div class="nav_logo">
+        <router-link to="/"><span></span></router-link>
+      </div>
+      <div class="desktop">
+        <ul>
+          <li>
+            <router-link to="/">Découvrir Hello Doe</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-container">
+    <section class="banner">
+      <div class="title">
+        <h1>Les coûts cachés de l'intérim</h1>
+      </div>
+    </section>
+    <section class="img-section no-padding">
+      <div class="img-container">
+        <div class="img"></div>
+      </div>
+    </section>
+    <section class="content-container">
+      <div class="content">
+        <h2>Hello Doe décortique les coûts liés à un recrutement en intérim.</h2>
+        <p>
+          Lors d’un pic d’activité, pour un contrat saisonnier ou suite à une absence non
+          remplacée, votre entreprise s'est jusqu'ici tournée vers les agences d’intérim. Face à
+          l’obscurité de la tarification appliquée, voici un outil qui vous permet de calculer
+          simplement le coût de vos intérimaires ainsi que la marge commerciale de l'agence à
+          laquelle vous faites appel.
+        </p>
+        <h2>Que couvre le "coëfficient de facturation" des agences d'intérim ?</h2>
+        <p>
+          Lorsque vous faites appel à une agence d'intérim, vous communiquez
+          <b>le salaire prévu</b> pour le poste que vous souhaitez remplir. L'agence applique à ce
+          salaire un <b>coefficient de facturation</b>
+          qui déterminera le coût final qui vous sera facturé. Ce coefficient comprend les charges
+          patronales dont l’agence doit s'acquitter, les indémnités liées au contrat, ainsi que sa
+          marge commerciale. Le coefficient peut varier entre 1,9 et 2,6 en fonction de la rareté
+          des compétences requises, du nombre d'intérimaires demandés ou du contexte économique.
+        </p>
+        <h2>Faites le calcul :</h2>
+        <p>
+          Pour calculer combien vous coûte un recrutement, et comprendre les coûts
+          <q>cachés</q> de l'intérim, <b>entrez simplement vos paramètres</b> et observer les
+          coûts ci-dessous :
+        </p>
+        <div class="tool-container">
+          <div id="parameters">
+            <div class="tab-title">
+              <h1>Les paramètres</h1>
+            </div>
+            <div>
+              <label for="workers">De <b>combien de travailleurs</b> avez-vous besoin ?</label>
+              <input @keyup="calcul"
+                     name="workers"
+                     type="number"
+                     value=""
+                     min="1"
+                     id="workers"
+                     placeholder="Nb. de travailleur" />
+            </div>
+            <div>
+              <label for="hours">Quel sera le <b>nombre d'heures</b> travaillées par jour pour chaque travailleur
+                ?</label>
+              <input @keyup="calcul"
+                     name="hours"
+                     type="number"
+                     value="8"
+                     min="1"
+                     id="hours" />
+            </div>
+            <div>
+              <label for="days">Pendant <b>combien de jours</b> ?</label>
+              <input @keyup="calcul"
+                     name="days"
+                     type="number"
+                     value="3"
+                     min="1"
+                     id="days" />
+            </div>
+            <div>
+              <label for="salary">Quel est la <b>rémunération horaire brute</b> des travailleurs ?
+                <i>Minimum 10,03€/h</i></label>
+              <input @keyup="calcul"
+                     name="salary"
+                     type="number"
+                     value="10.03"
+                     min="10.03"
+                     step="0.5"
+                     id="salary" />
+            </div>
+            <div>
+              <label for="coef">Quel est le <b>coëfficient de facturation</b> de l'agence d'intérim ?
+                <i>Généralement compris entre 1,9 et 2,6</i></label>
+              <input @keyup="calcul"
+                     name="coef"
+                     type="number"
+                     value="2.0"
+                     min="1.7"
+                     step="0.1"
+                     id="coef-agency" />
+            </div>
+          </div>
+          <div id="cal">
+            <div class="tab-title">
+              <h1>Le calcul</h1>
+            </div>
+            <table id="calcul">
+              <tbody>
+                <tr>
+                  <td class="bold left">Via</td>
+                  <td class="bold">CDD</td>
+                  <td class="bold">Intérim</td>
+                  <td class="bold">Hello Doe</td>
+                </tr>
+                <tr>
+                  <td class="left">Rémunération <b>horaire</b> percue par le travailleur</td>
+                  <td id="cdd-hour-student"></td>
+                  <td id="interim-hour-student"></td>
+                  <td id="dough-hour-student"></td>
+                </tr>
+                <tr>
+                  <td class="left">Rémunération <b>finale</b> percue par le travailleur</td>
+                  <td id="cdd-total-student"></td>
+                  <td id="interim-total-student"></td>
+                  <td id="dough-total-student"></td>
+                </tr>
+                <tr>
+                  <td class="left">
+                    Indémnité fin de contrat à payer (10%, exprimé en taux horaire)
+                  </td>
+                  <td id="cdd-end-contract"></td>
+                  <td id="interim-end-contract"></td>
+                  <td id="dough-end-contract"></td>
+                </tr>
+                <tr>
+                  <td class="left">
+                    Indemnité compensatrice de congés payés (10%, exprimé en taux horaire,
+                    indemnités de fin de contrat incluses)
+                  </td>
+                  <td id="cdd-holidays"></td>
+                  <td id="interim-holidays"></td>
+                  <td id="dough-holidays"></td>
+                </tr>
+                <tr>
+                  <td class="left">
+                    Charges patronales (42%, exprimé en taux horaire, indemnités de fin de contrat
+                    et de congés payés incluses)
+                  </td>
+                  <td id="charges-patronales-cdd"></td>
+                  <td id="charges-patronales-interim"></td>
+                  <td id="charges-patronales-dough"></td>
+                </tr>
+
+                <tr>
+                  <td class="bold left">Coût légal <b>horaire</b> du salaire à payer</td>
+                  <td id="hour-net-salary-cdd"></td>
+                  <td id="hour-net-salary-interim"></td>
+                  <td class="bold"
+                      id="hour-net-salary-dough"></td>
+                </tr>
+
+                <tr>
+                  <td class="left">Frais de commission <b>horaire</b></td>
+                  <td id="cdd-commission"></td>
+                  <td id="interim-commission"></td>
+                  <td id="dough-commission"></td>
+                </tr>
+
+                <tr>
+                  <td class="bold left">Coût <b>final horaire</b></td>
+                  <td class="totaux"
+                      id="hour-salary-cdd"></td>
+                  <td class="totaux"
+                      id="hour-salary-interim"></td>
+                  <td class="totaux bold"
+                      id="hour-salary-dough"></td>
+                </tr>
+                <tr>
+                  <td class="bold left">Coût final <b>total facturé</b> à l'entreprise</td>
+                  <td class="totaux"
+                      id="total-period-cdd"></td>
+                  <td class="totaux"
+                      id="total-period-interim"></td>
+                  <td class="totaux bold"
+                      id="total-period-dough"></td>
+                </tr>
+                <tr>
+                  <td class="bold left">Différence</td>
+                  <td id="diff01"></td>
+                  <td id="diff02"></td>
+                  <td class="bold"
+                      id="diff03"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="intro">
+          <h2>Qui sommes-nous ?</h2>
+          <p style="margin-bottom: 40px;">
+            Hello Doe trouve pour votre entreprise les meilleurs étudiants auto-entrepreneurs,
+            directement via Facebook & Messenger à l'aide de notre chatbot, pour réaliser tous
+            types de missions.
+          </p>
+          <router-link class="button"
+                       to="/">Découvrir Hello Doe</router-link>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="sub-section sub-section-1">
+    <div class="text">
+      <h3>Travailler avec des auto-entrepreneurs</h3>
+      <p>Oui, mais sous quelles conditions ?</p>
+      <router-link to="/guide/charte-d-utilisation">Plus d'informations</router-link>
+    </div>
+    <div class="picture">
+    </div>
+  </div>
+  <div class="footer">
+    <h2>
+      <router-link to="/"><img alt="Logo Hello Doe"
+             :src="helloDoeLogoWhite" /></router-link>
+    </h2>
+    <ul class="social">
+      <li>
+        <a href="https://www.facebook.com/HelloDoe"
+           target="_blank"
+           @mouseover="facebook()"
+           @mouseout="original()"
+           id="facebook_icon">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/company/18856462/"
+           target="_blank"
+           @mouseover="linkedin()"
+           @mouseout="original()"
+           id="linkedin_icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/hellodoe_/"
+           @mouseover="medium()"
+           @mouseout="original()"
+           id="instagram_icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://m.me/hellodoe"
+           @mouseover="messenger()"
+           @mouseout="original()"
+           id="messenger_icon">
+          <i class="fab fa-facebook-messenger"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="foot">
+      <li>
+        <a href="mailto:lucas@hellodoe.co">Contact</a>
+      </li>
+      <li>
+        <router-link to="/">Blog</router-link>
+      </li>
+      <li>
+        <router-link to="/cgu">CGU</router-link>
+      </li>
+      <li>
+        <router-link to="/cgu">Mentions Légales</router-link>
+      </li>
+    </ul>
+    <h5>© 2018 Hello Doe.</h5>
+  </div>
+</div>

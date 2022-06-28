@@ -1,0 +1,73 @@
+<div class="root-page">
+  <div class="root-page__page-menu">
+    <hd-page-menu @go-to-page="goToPage"
+                  @redirect-to-checkout="redirectToCheckout"
+                  :client-first-name="clientFirstName"
+                  :current-page-name="selectedPageName"
+                  data-test-id="page-menu">
+      <div class="page-menu__sub-menu__action-mission-card"
+           @click.stop="">
+        <transition name="menu-transition">
+          <div v-if="showMissionMenu"
+               class="page-menu__sub-menu__action-mission-card__list-option"
+               data-test-id="mission-show-menu">
+
+            <hd-mission-info-action-button v-for="item in missionMenuItems"
+                                           :title=" item.buttonTitle"
+                                           @click.native="handleMenuActionButtonClick(item.buttonAction)">
+              <template #icon>
+                {{item.asset}}
+              </template>
+            </hd-mission-info-action-button>
+
+          </div>
+        </transition>
+        <div class="page-menu__sub-menu__action-mission-card__mission-menu"
+             @click="toogleShowMissionMenu">
+          <span class="spacer"></span>
+          <div class="page-menu__sub-menu__action-mission-card__mission-menu__button">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <hd-mission-info-card :category="infoMission.category"
+                              :contract="infoMission.contract"
+                              :payment-amount="infoMission.paymentAmount"
+                              :payment-unit="infoMission.paymentUnit"
+                              :begin-at="infoMission.beginAt"
+                              :nb-workers="infoMission.nbWorkers">
+        </hd-mission-info-card>
+
+      </div>
+    </hd-page-menu>
+  </div>
+
+  <div class="root-page__page">
+    <router-view @go-to-page="goToPage"></router-view>
+  </div>
+  <div>
+    <portal-target name="dialog">
+    </portal-target>
+  </div>
+
+  <hd-sponso-my-ad-dialog :mission-code="missionCode"
+                          :client-first-name="clientFirstName"
+                          :client-email="clientEmail"
+                          :open.sync="isSponsoMyAddDialogOpen"
+                          data-test-id="sponso-my-ad-dialog">
+  </hd-sponso-my-ad-dialog>
+
+  <hd-boost-my-ad-dialog :mission-code="missionCode"
+                         :client-first-name="clientFirstName"
+                         :client-email="clientEmail"
+                         :open.sync="isBoostMyAddDialogOpen"
+                         data-test-id="boost-my-ad-dialog">
+  </hd-boost-my-ad-dialog>
+
+  <hd-help-dialog :open.sync="isHelpDialogOpen"
+                  data-test-id="help-dialog">
+  </hd-help-dialog>
+
+</div>

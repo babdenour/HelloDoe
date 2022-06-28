@@ -1,0 +1,12 @@
+<div class="checkout-success">
+  <div class="checkout-success__card">
+    <i class="el-icon-check checkout-success__icon"></i>
+    <h1 class="checkout-success__title"
+        data-test-id="title">{{ i18n.title }}</h1>
+    <p data-test-id="subtitle">{{ i18n.subtitle }}</p>
+    <el-button type="primary"
+               round
+               @click="redirectToDashboard"
+               data-test-id="back-button">{{ i18n.validate }}</el-button>
+  </div>
+</div>

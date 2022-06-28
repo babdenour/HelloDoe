@@ -1,0 +1,110 @@
+<hd-page class="mission-info-page"
+         title="Consulter la mission"
+         :menu="menu">
+  <app-loader v-if="fetchingMissionDetails"></app-loader>
+  <div v-else
+       class="mission-info-page__content">
+    <el-card shadow="never">
+      <div slot="header"
+           class="mission-info-page__mission__header">
+        <h5>Mission</h5>
+
+        <span class="mission-info-page__spacer"></span>
+
+        <el-button type="primary"
+                   icon="el-icon-edit"
+                   :disabled="true">
+          <span>Éditer</span>
+        </el-button>
+
+        <el-button v-if="isStatusForValidation"
+                   type="primary"
+                   icon="el-icon-check"
+                   :loading="validatingMission"
+                   @click="openDialog"
+                   data-test-id="validate-button">
+          <span>{{ i18n.validate }}</span>
+        </el-button>
+      </div>
+
+      <div class="mission-info-page__card-content">
+        <p>
+          <b>Catégorie:</b>
+          {{ missionCategoryName() }}
+        </p>
+        <p>
+          <b>Adresse:</b>
+          {{ details.mission.address }}
+        </p>
+        <p>
+          <b>Arrondissement:</b>
+          {{ missionDistrictName() }}
+        </p>
+        <p>
+          <b>Dates:</b>
+        </p>
+        <app-date-cards-list :cards="details.mission.dates"></app-date-cards-list>
+        <p>
+          <b>Description:</b>
+          {{ details.mission.description }}
+        </p>
+        <p>
+          <b>Nombre de travailleurs:</b>
+          {{ details.mission.nbWorkers }}
+        </p>
+        <p>
+          <b>Payé par le client:</b>
+          {{ computeMissionAmount() }}€
+        </p>
+        <p>
+          <b>Statut:</b>
+          {{ i18n.missionStatus }}
+        </p>
+      </div>
+    </el-card>
+
+    <el-card shadow="never">
+      <h5 slot="header">Client</h5>
+
+      <div class="mission-info-page__card-content">
+        <p>
+          <b>Entreprise:</b>
+          {{ details.client.company }}
+        </p>
+        <p>
+          <b>Adresse:</b>
+          {{ details.client.address }}
+        </p>
+      </div>
+    </el-card>
+
+    <el-card shadow="never">
+      <h5 slot="header">Contact</h5>
+
+      <div class="mission-info-page__card-content">
+        <p>
+          <b>Prénom:</b>
+          {{ details.client.contact.firstName }}
+        </p>
+        <p>
+          <b>Nom:</b>
+          {{ details.client.contact.lastName }}
+        </p>
+        <p>
+          <b>Téléphone:</b>
+          {{ details.client.contact.phone }}
+        </p>
+        <p>
+          <b>Mail:</b>
+          {{ details.client.contact.email }}
+        </p>
+      </div>
+    </el-card>
+  </div>
+
+  <hd-dialog-confirm :title="i18n.dialogTitle"
+                     :message="i18n.dialogMessage"
+                     :show.sync="showConfirmDialog"
+                     @confirm="validateMission"
+                     data-test-id="dialog-confirm"></hd-dialog-confirm>
+</hd-page>

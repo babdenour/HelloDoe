@@ -1,0 +1,67 @@
+<hd-page class="candidate-list-page"
+         title="Candidat(e)s"
+         :menu="menu">
+  <div class="candidate-list-page__metrics">
+    <span class="font-weight-bold">Travailleurs requis</span>
+    {{ nbHired }} / {{ nbWorkers }}
+  </div>
+
+  <div class="broadcast">
+    <Broadcast broadcast-target="HIRED"
+               :mission-id="missionId" />
+    <el-divider />
+  </div>
+
+  <div>
+    <app-loader v-if="fetchingCandidates"></app-loader>
+
+    <div v-else-if="candidates.length === 0">
+      Aucun candidat pour le moment
+    </div>
+
+    <div v-else>
+      <el-card class="candidate"
+               v-for="c in candidates"
+               :key="c.id"
+               :body-style="{'flex-grow':1}">
+        <el-row class="candidate__body">
+          <el-col :span="4">
+            <img :src="c.img"
+                 alt="facebook profile picture"
+                 class="img-fluid candidate-profile-pic" />
+          </el-col>
+
+          <el-col :span="5">
+            <div>
+              <b>Facebook</b>
+            </div>
+            <div>{{ c.fbFirstName }} {{ c.fbLastName }}</div>
+          </el-col>
+
+          <el-col :span="5">
+            <div>
+              <b>Hello Doe</b>
+            </div>
+            <div>
+              {{ c.firstName }} {{ c.lastName }}
+              <span v-if="c.rating">- {{ c.rating }} / 5</span>
+            </div>
+            <div>{{ c.email }}</div>
+          </el-col>
+
+          <el-col v-if="!c.hired"
+                  class="candidate-actions"
+                  :span="10">
+            <el-button type="primary"
+                       icon="el-icon-circle-check"
+                       :class="{ invisible: nbWorkers - nbHired === 0 }"
+                       :loading="c.sendingEnroll || c.enrollSent"
+                       @click="enroll(c.id)">
+              <span>Recruter</span>
+            </el-button>
+          </el-col>
+        </el-row>
+      </el-card>
+    </div>
+  </div>
+</hd-page>

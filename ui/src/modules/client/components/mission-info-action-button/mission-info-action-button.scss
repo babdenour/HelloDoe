@@ -1,0 +1,25 @@
+.mission-info-action-button {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 12px;
+  padding-left: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  &__title {
+    margin-left: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover {
+    background-color: #ededed;
+    cursor: pointer;
+  }
+}

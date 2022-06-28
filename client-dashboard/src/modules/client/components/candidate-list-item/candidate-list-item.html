@@ -1,0 +1,46 @@
+<div class="candidate-list-item"
+     :class="listItemCssClass"
+     data-test-id="wrapper">
+  <div class="candidate-list-item__image">
+    <div class="img"
+         :style="imageStyle"></div>
+  </div>
+
+  <div class="candidate-list-item-infos">
+    <div class="candidate-list-item-infos-top">
+      <div>{{firstName}}, {{age}} ans</div>
+    </div>
+    <div v-if="isUnlocked"
+         class="candidate-list-item-infos-bottom">
+      <div v-if="isPhoneNumber"
+           data-test-id="phone-number">📞 {{phoneNumber}}</div>
+    </div>
+    <div v-else
+         class="candidate-list-item-infos-bottom">
+      <hd-emoji class="candidate-list-item__infos__emoji"
+                size="16px"
+                name="speech-balloon">
+      </hd-emoji>
+      <div>
+        {{score}}/10 aux quizz
+      </div>
+    </div>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="candidate-list-item__icon">
+    <div v-if="isUnlocked"
+         data-test-id="icon-unlocked">
+      <hd-emoji size="16px"
+                name="open-lock">
+      </hd-emoji>
+    </div>
+    <div v-else
+         @click.stop="emitSetCandidateFavorite"
+         class="candidate-list-item__icon__heart-button"
+         data-test-id="heart-button-action">
+      <hd-heart-button :force-fill="isFavorite"></hd-heart-button>
+    </div>
+  </div>
+</div>

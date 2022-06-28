@@ -1,0 +1,71 @@
+<div class="mission-creation-process px-2 py-5">
+  <div class="mission-creation-process__header text-left">
+    <div v-if="currentStep === 0">
+      <h1>Étape {{ currentStep + 1 }} / {{ totalSteps }}</h1>
+      <h3>Votre Entreprise :</h3>
+    </div>
+    <div v-if="currentStep === 1">
+      <h1>Étape {{ currentStep + 1 }} / {{ totalSteps }}</h1>
+      <h3>Le référent de la mission :</h3>
+    </div>
+    <div v-if="currentStep === 2">
+      <h1>Étape {{ currentStep + 1 }} / {{ totalSteps }}</h1>
+      <h3>La Mission :</h3>
+    </div>
+    <div v-else-if="currentStep === 3">
+      <h1>Étape {{ currentStep + 1 }} / {{ totalSteps }}</h1>
+      <h3>Le Paiement :</h3>
+    </div>
+    <div v-else-if="currentStep === 4">
+      <div class="text-center"
+           v-if="this.postingMission">
+        <app-loader></app-loader>
+        <h3>Création de la mission en cours...</h3>
+      </div>
+      <div v-else>
+        <div v-if="serverError === ErrorKeys.NOT_SPECIFIED">
+          <div class="icon text-danger">
+            <i class="fas fa-times"></i>
+          </div>
+          <h1>Un problème est survenu sur nos serveurs</h1>
+          <h3>
+            Votre mission n'a pas pu être créée, et, rassurez-vous, votre compte n'a pas été
+            débité.
+            <br />
+            <br />Nous nous penchons sur le problème dans le plus brefs délais.
+            <br />
+            <br />Veuillez nous excuser pour la gêne occasionnée.
+          </h3>
+        </div>
+        <div v-else>
+          <div class="icon text-success">
+            <i class="fas fa-check"></i>
+          </div>
+          <h1>Votre mission a été créée avec succès !</h1>
+          <h3>
+            Les étudiants peuvent d'ores et déjà postuler 🎉 <br />Nous vous avertirons dès que
+            nous vous aurons trouvé la crème des freelances 🍦
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mission-creation-process__content">
+    <hd-enterprise-information-form v-show="currentStep === 0"
+                                    @next="nextStep"></hd-enterprise-information-form>
+    <hd-contact-information-form v-show="currentStep === 1"
+                                 @previous="previousStep"
+                                 @next="nextStep"></hd-contact-information-form>
+    <hd-mission-information-step v-show="currentStep === 2"
+                                 @previous="previousStep"
+                                 @next="nextStep"></hd-mission-information-step>
+    <hd-credit-card-paiement v-if="currentStep === 3"
+                             @previous="previousStep"
+                             @next="endHookCardToken"
+                             :mission-amount="missionPrice"
+                             :mission-nb-workers="missionDoersCount"
+                             :mission-dates="missionDates"
+                             :payable="payable"></hd-credit-card-paiement>
+  </div>
+</div>

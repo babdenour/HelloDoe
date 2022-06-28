@@ -1,0 +1,53 @@
+.mission-info-card {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 20px;
+  text-align: center;
+  font-size: 18.688px;
+  font-family: 'coolvetica', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  flex-wrap: wrap;
+
+  &__image img {
+    width: 83.6px;
+    margin-bottom: 20.3px;
+  }
+
+  &__infos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &-category {
+      display: flex;
+    }
+  }
+
+  .classic-background {
+    background-color: #f8f8f8;
+  }
+
+  .center-text {
+    display: flex;
+    align-items: center;
+  }
+
+  .margins {
+    margin-left: 1.389px;
+    margin-right: 1.389px;
+    padding-left: 6.65px;
+    padding-right: 6.65px;
+    height: 30px;
+    margin-bottom: 7px;
+  }
+
+  .rounded {
+    border-radius: 51px !important;
+  }
+}
+
+.background-color {
+  background-color: var(--backgroundColor);
+}

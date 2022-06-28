@@ -1,0 +1,48 @@
+@import 'colors.scss';
+
+.mission {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px $grey-l;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    .item {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+
+      .label {
+        display: inline-block;
+        flex-shrink: 0;
+        width: 120px;
+        font-weight: bold;
+      }
+
+      .value {
+        text-align: justify;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .mission {
+    display: block;
+  }
+}

@@ -1,0 +1,28 @@
+<div class="mission-information-step">
+  <div class="mission-information-step__content container-fluid mx-auto px-2 py-4">
+    <hd-mission-information-form @form-completed="onFormCompleted($event)">
+    </hd-mission-information-form>
+    <br />
+    <div>
+      <input type="checkbox"
+             id="cgu"
+             v-model="cguCheked" />
+      <label for="cgu"
+             class="px-1">En cochant la case, j'accepte les
+        <router-link to="/cgu"
+                     target="_blank">conditions générales d'utilisation.</router-link></label>
+    </div>
+    <br />
+    <div class="actions">
+      <button class="btn btn-light"
+              @click="previousStep">
+        <i class="fas fa-chevron-left"></i> Étape précédente
+      </button>
+      <button class="btn btn-primary"
+              :disabled="!enableNextButton"
+              @click="nextStep">
+        Étape suivante <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

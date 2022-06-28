@@ -1,0 +1,43 @@
+@import 'colors.scss';
+
+.question-search-dialog {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__questions {
+    margin-top: 24px;
+
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &__question {
+    &.selected {
+      border-color: $--hd-color-primary;
+    }
+  }
+
+  &__question-body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__question-checkbox {
+    padding: 0 16px 0 8px;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tag-select {
+    width: 100%;
+  }
+}

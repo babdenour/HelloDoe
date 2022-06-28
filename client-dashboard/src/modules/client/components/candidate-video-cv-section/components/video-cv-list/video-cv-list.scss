@@ -1,0 +1,33 @@
+.video-cv-list {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff4;
+  padding: 16px;
+  align-items: flex-end;
+  justify-content: center;
+
+  > * {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &__thumbnail {
+    position: relative;
+    border-radius: 12px;
+    filter: grayscale(25%);
+    bottom: 0;
+    opacity: 0.75;
+    cursor: pointer;
+
+    &--selected {
+      filter: none;
+      opacity: 1;
+      bottom: 10px;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-out;
+      transition-property: bottom, filter, opacity;
+    }
+  }
+}

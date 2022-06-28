@@ -1,0 +1,3 @@
+export enum InjectableNames {
+  ACCESS_CONTROL_SERVICE = 'ACCESS_CONTROL/ACCESS_CONTROL_SERVICE',
+}

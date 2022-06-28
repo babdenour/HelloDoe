@@ -1,0 +1,32 @@
+<el-card class="mission">
+  <div class="mission__header"
+       slot="header">
+    <el-tag>{{ i18n.missionStatus }}</el-tag>
+    <el-tag type="info"> Débute le {{ startDate }} </el-tag>
+    <el-tag type="info">{{ i18n.missionCategory }}</el-tag>
+  </div>
+
+  <div class="mission__content">
+    <div class="item">
+      <div class="label">id</div>
+      <div class="value">{{ mission.id }}</div>
+    </div>
+    <div class="item">
+      <div class="label">description</div>
+      <div class="value">{{ description }}</div>
+    </div>
+  </div>
+
+  <div class="mission__actions">
+    <el-button type="primary"
+               @click="navigateToMissionDetails(mission.id)">
+      <i class="el-icon-view"></i>
+      <span>Plus d'infos</span>
+    </el-button>
+    <el-button type="primary"
+               @click="navigateToMissionCom(mission.id)">
+      <i class="el-icon-star-off"></i>
+      <span>Image Com</span>
+    </el-button>
+  </div>
+</el-card>

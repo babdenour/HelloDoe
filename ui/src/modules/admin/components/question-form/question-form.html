@@ -1,0 +1,80 @@
+<div class="question-form">
+  <el-form class="question-form__form"
+           :model="form"
+           :rules="rules"
+           ref="form">
+
+    <div class="question-form__actions">
+      <el-dropdown class="question-form__add-message-dropdown"
+                   trigger="click"
+                   @command="addMessage">
+        <el-button type="primary"
+                   plain
+                   data-test-id="add-message-button">
+          <i class="el-icon-plus"></i>
+          {{i18n.addMessage}}
+          <i class="el-icon-arrow-down"></i>
+        </el-button>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item v-for="option of addMessageOptions"
+                            :key="option.label"
+                            :command="option.command">
+            <i :class="option.icon"></i> {{option.label}}
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
+
+    <el-card class="question-form__message"
+             shadow="never"
+             v-for="(message, messageIdx) in form.messages"
+             :key="message.id">
+      <hd-image-message-form v-if="isImageMessage(message)"
+                             :url="message.url"
+                             :ref="getMessageRef(messageIdx)"></hd-image-message-form>
+      <hd-quick-replies-message-form v-else-if="isQuickRepliesMessage(message)"
+                                     :text="message.text"
+                                     :choices="message.choices"
+                                     :ref="getMessageRef(messageIdx)"></hd-quick-replies-message-form>
+      <hd-text-message-form v-else-if="isTextMessage(message)"
+                            :text="message.text"
+                            :ref="getMessageRef(messageIdx)"></hd-text-message-form>
+
+      <el-dropdown v-if="!isQuickRepliesMessage(message)"
+                   class="question-form__message__actions"
+                   trigger="click"
+                   @command="handleMessageAction"
+                   data-test-id="message-actions">
+        <span class="el-dropdown-link">
+          <i class="el-icon-more"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item :command="{cmd: messageCmd.moveUp, payload: message.id}"
+                            icon="el-icon-top">{{i18n.moveUp}}</el-dropdown-item>
+          <el-dropdown-item :command="{cmd: messageCmd.moveDown, payload: message.id}"
+                            icon="el-icon-bottom">{{i18n.moveDown}}</el-dropdown-item>
+          <el-dropdown-item :command="{cmd: messageCmd.delete, payload: message.id}"
+                            icon="el-icon-delete"
+                            divided>{{i18n.delete}}</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </el-card>
+
+    <el-form-item prop="tags">
+      <el-select class="question-form__tags"
+                 v-model="form.tags"
+                 multiple
+                 filterable
+                 allow-create
+                 :placeholder="i18n.tags"
+                 :no-data-text="i18n.noOptions"
+                 data-test-id="tags-select">
+        <el-option v-for="tag in existingTags"
+                   :key="tag"
+                   :label="tag"
+                   :value="tag"></el-option>
+      </el-select>
+    </el-form-item>
+
+  </el-form>
+</div>

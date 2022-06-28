@@ -1,0 +1,10 @@
+<div class="info-card">
+  <div v-if="labelOn"
+       class="info-card__label">{{label}}</div>
+  <div class="info-card__title">{{title}}</div>
+  <div class="info-card__description">{{description}}</div>
+  <span class="spacer"></span>
+  <div class="info-card__button"
+       @click="ctaClicked"
+       data-test-id="cta-info-card">{{button}}</div>
+</div>

@@ -1,0 +1,21 @@
+<div class="host">
+  <app-loader v-if="fetchingMissionDetails"></app-loader>
+  <div v-else>
+    <hd-mission-information-form v-bind="formatDataForMissionForm()"
+                                 @form-completed="onFormCompleted($event)"></hd-mission-information-form>
+    <div>
+      <button class="btn btn-success"
+              @click="updateMission()">
+        <app-loader v-if="updatingMission"
+                    size="small"></app-loader>
+        <span v-else> <i class="fas fa-check"></i> Valider </span>
+      </button>
+      <router-link :to="{ name: 'AdminMissionInfoPage' }">
+        <button class="btn btn-danger">
+          <i class="fas fa-times"></i>
+          <span>Annuler</span>
+        </button>
+      </router-link>
+    </div>
+  </div>
+</div>

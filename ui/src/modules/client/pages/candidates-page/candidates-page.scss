@@ -1,0 +1,19 @@
+.candidates-page {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden;
+  background: #eee;
+
+  &__candidate-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 23;
+  }
+
+  &__candidate-video-cv-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 50;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="login-page">
+
+  <span class="login-page__spacer"></span>
+
+  <div class="login-page__card"
+       shadow="never">
+    <img alt="logoHelloDoe"
+         :src="logoHelloDoe" />
+    <h3 class="login-page__title">{{i18n.pageTitle}}</h3>
+
+    <input class="login-page__input"
+           :class="{ 'login-page__input--error': isFieldInError(form, 'email') }"
+           v-model="form.values.email.value"
+           @keyup.enter="logIn"
+           type="text"
+           name="email"
+           :placeholder="i18n.email"
+           @input="checkInput(form, 'email')"
+           @blur="setTouched(form, 'email')" />
+    <span class="login-page__input-line"></span>
+    <span v-if="isFieldInError(form, 'email')"
+          class="login-page__input-error">{{getError(form, 'email')}}</span>
+
+    <input class="login-page__input"
+           :class="{ 'login-page__input--error': isFieldInError(form, 'missionCode') }"
+           type="text"
+           v-model="form.values.missionCode.value"
+           @keyup.enter="logIn"
+           name="missionCode"
+           :placeholder="i18n.missionCode"
+           @input="checkInput(form, 'missionCode')"
+           @blur="setTouched(form, 'missionCode')" />
+    <span class="login-page__input-line"></span>
+    <span v-if="isFieldInError(form, 'missionCode')"
+          class="login-page__input-error">{{getError(form, 'missionCode')}}</span>
+
+    <button class="login-page__login-button"
+            :loading="loggingIn"
+            @click="logIn"
+            @keyup.enter="logIn">{{i18n.login}}</button>
+  </div>
+
+  <span class="login-page__spacer"></span>
+  <span class="login-page__spacer"></span>
+
+</div>

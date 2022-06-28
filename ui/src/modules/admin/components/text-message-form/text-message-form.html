@@ -1,0 +1,10 @@
+<el-form class="text-message-form"
+         :model="form"
+         :rules="rules"
+         ref="form">
+  <h6 data-test-id="text-title">{{i18n.textTitle}}</h6>
+  <el-form-item prop="text">
+    <el-input v-model="form.text"
+              :placeholder="i18n.textExample"></el-input>
+  </el-form-item>
+</el-form>

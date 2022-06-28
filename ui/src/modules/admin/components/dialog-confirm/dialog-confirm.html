@@ -1,0 +1,18 @@
+<el-dialog class="dialog-confirm"
+           :title="title"
+           :visible="show"
+           :width="dialogWidth"
+           @update:visible="handleUpdateVisible"
+           data-test-id="dialog">
+
+  <span v-html="message"
+        data-test-id="message"></span>
+
+  <span slot="footer">
+    <el-button @click="close"
+               data-test-id="cancel-button">{{i18n.cancel}}</el-button>
+    <el-button type="primary"
+               @click="handleConfirm"
+               data-test-id="confirm-button">{{i18n.confirm}}</el-button>
+  </span>
+</el-dialog>

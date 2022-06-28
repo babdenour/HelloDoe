@@ -1,0 +1,75 @@
+<div class="enterprise-information-form">
+  <div class="enterprise-information-form__content container-fluid mx-auto px-2 py-4">
+    <form>
+      <fieldset>
+        <div class="form-group">
+          <label for="companyName">Nom de l'entreprise</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">🏬</div>
+            </div>
+            <input id="companyName"
+                   class="enterprise-information-form__company-name form-control"
+                   type="text"
+                   placeholder="Nom de l'entreprise"
+                   v-model="companyName"
+                   @input="checkInput"
+                   @blur="checkInput" />
+          </div>
+          <div class="text-danger"
+               v-if="errors.companyName.invalid === true">
+            {{ errors.companyName.msg }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="companyAddress">Adresse</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">📍</div>
+            </div>
+            <input id="companyAddress"
+                   class="enterprise-information-form__company-address form-control"
+                   type="text"
+                   placeholder="Adresse de l'entreprise"
+                   v-model="companyAddress"
+                   @input="checkInput"
+                   @blur="checkInput" />
+          </div>
+          <div class="text-danger"
+               v-if="errors.companyAddress.invalid === true">
+            {{ errors.companyAddress.msg }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="companySIREN">N° SIREN</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">#️⃣</div>
+            </div>
+            <input id="companySIREN"
+                   class="enterprise-information-form__company-siren form-control"
+                   type="text"
+                   placeholder="N° SIREN"
+                   v-model="companySIREN"
+                   @input="checkInput"
+                   @blur="checkInput" />
+          </div>
+          <div class="text-danger"
+               v-if="errors.companySIREN.invalid === true">
+            {{ errors.companySIREN.msg }}
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button class="btn btn-primary"
+                :disabled="!formCompleted"
+                @click="nextStep">
+          Étape suivante <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

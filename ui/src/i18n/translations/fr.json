@@ -1,0 +1,400 @@
+{
+  "actions": {
+    "add": "Ajouter",
+    "add-message": "Ajouter un message",
+    "boost-my-ad": "Booster mon annonce",
+    "cancel": "Annuler",
+    "choice-add": "Ajouter un choix",
+    "confirm": "Confirmer",
+    "create": "Créer",
+    "delete": "Supprimer",
+    "edit": "Éditer",
+    "login": "Se connecter",
+    "modify-my-ad": "Modifier mon annonce",
+    "move-down": "Déplacer vers le bas",
+    "move-up": "Déplacer vers le haut",
+    "next-candidate": "Candidat(e) suivant(e)",
+    "previous-candidate": "Candidat(e) précédent(e)",
+    "publish-new-ad": "Publier une annonce",
+    "question-create": "Créer une question",
+    "question-search": "Chercher une question",
+    "save": "Sauvegarder",
+    "send": "Envoyer",
+    "sponsor-my-ad": "Sponsoriser mon annonce",
+    "validate": "Valider"
+  },
+  "api": {
+    "mission-validate": {
+      "H00003": "La mission n'a pas de quizz de présélection",
+      "H00008": "La mission à déjà été validée",
+      "success": "La mission a été validée avec succès"
+    }
+  },
+  "calendar": {
+    "day": {
+      "abbrev": {
+        "0": "Dim.",
+        "1": "Lun.",
+        "2": "Mar.",
+        "3": "Mer.",
+        "4": "Jeu.",
+        "5": "Ven.",
+        "6": "Sam."
+      },
+      "full-name": {
+        "0": "Dimanche",
+        "1": "Lundi",
+        "2": "Mardi",
+        "3": "Mercredi",
+        "4": "Jeudi",
+        "5": "Vendredi",
+        "6": "Samedi"
+      }
+    },
+    "month": {
+      "abbrev": {
+        "0": "Jan.",
+        "1": "Fév.",
+        "2": "Mars",
+        "3": "Avr.",
+        "4": "Mai",
+        "5": "Juin",
+        "6": "Jui.",
+        "7": "Août",
+        "8": "Sep.",
+        "9": "Oct.",
+        "10": "Nov.",
+        "11": "Déc."
+      },
+      "full-name": {
+        "0": "Janvier",
+        "1": "Février",
+        "2": "Mars",
+        "3": "Avril",
+        "4": "Mai",
+        "5": "Juin",
+        "6": "Juillet",
+        "7": "Août",
+        "8": "Septembre",
+        "9": "Octobre",
+        "10": "Novembre",
+        "11": "Décembre"
+      }
+    }
+  },
+  "dialogs": {
+    "mission-confirm-validation": {
+      "message": "Valider la mission la rend visible auprès des doers.<br/><br/>Êtes-vous sûrs de vouloir valider la mission ?",
+      "title": "Valider la mission"
+    }
+  },
+  "forms": {
+    "errors": {
+      "empty-field": "Le champ doit être complété",
+      "image-loading-error": "L'image ne s'est pas chargée correctement",
+      "url-invalid": "L'url est incorrecte"
+    },
+    "image-message": {
+      "image-title": "Image"
+    },
+    "placeholders": {
+      "email": "Email",
+      "mission-code": "Code mission"
+    },
+    "question": {
+      "errors": {
+        "tag-empty": "Un tag ne peut pas être vide",
+        "tags-missing": "Au moins 1 tag doit être ajouté | Au moins 1 tag doit être ajouté | Au moins {count} tags doivent être ajoutés"
+      }
+    },
+    "quick-replies-message": {
+      "choices-title": "Choix",
+      "question-title": "Question"
+    },
+    "text-message": {
+      "text-title": "Texte"
+    }
+  },
+  "labels": {
+    "image": "Image",
+    "text": "Texte"
+  },
+  "messages": {
+    "login-failure": "Nous n'avons pas pu vous authentifier, veuillez vérifier les informations de connexion",
+    "quizz": {
+      "save-success": "Le quizz a été sauvegardé avec succès"
+    },
+    "email-copied": "Email copié!"
+  },
+  "mission": {
+    "category": {
+      "ACCESS_CONTROL": "Contrôle d’accès",
+      "ADMIN_HELP": "Aide Administrative",
+      "ANIMATION_DEMONSTRATION": "Animation / Démonstration",
+      "ARGICULTURAL_EMPLOYEE": "Renfort Agricole",
+      "BABY_SITTING": "Baby-sitting",
+      "CASH_AND_CARRY": "Caisse & Enlèvement",
+      "COMMERCIAL_PROSPECTING": "Prospection Commerciale",
+      "CUSTOMER_SUPPORT": "Support Client",
+      "DATA_ENTRY": "Saisie de Données",
+      "DELIVERY": "Livraison",
+      "DISH_WASHING": "Plongeur",
+      "DONOR_RECRUITER": "Recrutement de Donateurs",
+      "FAST_FOOD": "Restauration Rapide",
+      "HANDLING": "Manutention",
+      "HOST": "Accueil Hôtellerie",
+      "HOST_VISITORS": "Accueil Visiteurs",
+      "INVENTORY": "Inventaire",
+      "LABELING_STOCK": "Etiquetage / Stock",
+      "LITTLE_HANDS": "Petites Mains",
+      "LUXURY_SALE": "Vente Luxe",
+      "MOVING": "Déménagement",
+      "ONLINE_SEARCH": "Recherche en Ligne",
+      "PACKING": "Conditionnement",
+      "SALES_ASSISTANT": "Vente en Boutique",
+      "SELF_SERVICE_MERCHANDISING": "Libre Service & Merchandising",
+      "SERVICE": "Service",
+      "STREET_MARKETING": "Street Marketing",
+      "TICKETING": "Billetterie",
+      "VALET": "Voiturier",
+      "WARDROBE": "Accueil Vestiaire"
+    },
+    "contract-type": {
+      "CDD": "CDD",
+      "CDI": "CDI",
+      "EXTRA": "Extra",
+      "FREELANCE": "Freelance",
+      "SEASONAL": "Saisonnier",
+      "TEMPORARY": "Temporaire"
+    },
+    "payment-unit": {
+      "DAY": "Jour",
+      "HOUR": "Heure",
+      "MISSION": "Mission",
+      "MONTH": "Mois",
+      "WEEK": "Semaine"
+    },
+    "post-name": {
+      "ACCESS_CONTROL": "Contrôleur d’accès",
+      "ADMIN_HELP": "Aide Administrative",
+      "ANIMATION_DEMONSTRATION": "Animation / Démonstration",
+      "ARGICULTURAL_EMPLOYEE": "Renfort Agricole | Renfort Agricole | Renforts Agricoles",
+      "BABY_SITTING": "Baby-sitter | Baby-sitter | Baby-sitters",
+      "CASH_AND_CARRY": "Caisse & Enlèvement",
+      "COMMERCIAL_PROSPECTING": "Prospection Commerciale",
+      "CUSTOMER_SUPPORT": "Support Client",
+      "DATA_ENTRY": "Saisisseur de Données",
+      "DELIVERY": "Livreur|Livreur|Livreurs",
+      "DISH_WASHING": "Plongeur|Plongeur|Plongeurs",
+      "DONOR_RECRUITER": "Recruteur de Donateurs|Recruteur de Donateurs|Recruteurs de Donateurs",
+      "FAST_FOOD": "Restauration Rapide",
+      "HANDLING": "Manutentionniste | Manutentionniste | Manutentionnistes",
+      "HOST": "Réceptionniste|Réceptionniste|Réceptionnistes",
+      "HOST_VISITORS": "Accueil Visiteurs",
+      "INVENTORY": "Inventaire",
+      "LABELING_STOCK": "Etiquetage / Stock",
+      "LITTLE_HANDS": "Petite Main | Petite Main |Petites Mains",
+      "LUXURY_SALE": "Vendeur Luxe | Vendeur Luxe|Vendeurs Luxe",
+      "MOVING": "Déménageur | Déménageur |Déménageurs",
+      "ONLINE_SEARCH": "Recherche en Ligne",
+      "PACKING": "Conditionneur | Conditionneur |Conditionneurs",
+      "SALES_ASSISTANT": "Vente en Boutique",
+      "SELF_SERVICE_MERCHANDISING": "Libre Service & Merchandising",
+      "SERVICE": "Service",
+      "STREET_MARKETING": "Street Marketing",
+      "TICKETING": "Billetterie",
+      "VALET": "Voiturier|Voiturier|Voituriers",
+      "WARDROBE": "Accueil Vestiaire"
+    },
+    "status": {
+      "BEING_PREPARED": "En recherche de travailleurs",
+      "BEING_REVIEWED": "En revue",
+      "DONE": "Terminée",
+      "FOR_VALIDATION": "En validation",
+      "ON_GOING": "En cours",
+      "PREPARED": "Parée au lancement",
+      "TO_BE_PAID_BY_CLIENT": "En attente de paiement de la part du client",
+      "WORKERS_TO_BE_PAID": "Travailleurs en attente de paiement"
+    }
+  },
+  "pages": {
+    "client": {
+      "candidates-page": {
+        "FAVORITE": "En favoris",
+        "OTHER": "Toutes les candidatures",
+        "SUGGESTED": "Suggestions",
+        "UNLOCKED": "Débloqués",
+        "button-card": {
+          "paiement": {
+            "PAIEMENT_CARD_SUBTITLE": "et débloquez les contacts de vos favoris",
+            "PAIEMENT_CARD_TITLE": "Accédez au paiement"
+          },
+          "sponsor-ad": {
+            "title": "Sponsorisez votre annonce",
+            "subtitle": "pour obtenir plus de candidatures"
+          },
+          "boost-ad": {
+            "title": "Une urgence ?",
+            "subtitle": "Notifier nos Doers via Messenger"
+          }
+        },
+        "candidate-age": "{age} ans",
+        "candidate-applied-at": "A postulé le <strong>{appliedAt}</strong>",
+        "candidate-score": "Score",
+        "menu-button": {
+          "dashboard-tutorial": "Tutoriel dashboard",
+          "faq": "FAQ",
+          "my-candidates": "Mes candidatures",
+          "recruit-process": "Nos étapes de recrutement",
+          "unlock-favorite": "Débloquer mes Favoris"
+        },
+        "publish-button": "Publier une annonce ✏️",
+        "question-asked": "\"{question}\"",
+        "question-label": "Question #{number} :"
+      },
+      "checlout-failure": {
+        "subtitle": "Une erreur est survenue, veuillez réessayer plus tard",
+        "title": "Hmm..."
+      },
+      "checlout-success": {
+        "subtitle": "Vous pouvez dès à présent contacter les doers",
+        "title": "Opération réussie !"
+      },
+      "faq-page": {
+        "help-info-dialog": {
+          "title": "Besoin d’aide ?",
+          "description": "Contactez-nous par mail, nos équipes vous répondront dès que possible.",
+          "cta": "lucas@hellodoe.co <i class=\"fa fa-clone\" aria-hidden=\"true\"></i>",
+          "iconSrc": "📧"
+        },
+        "boost-info-dialog": {
+          "title": "Votre mission débute bientôt?",
+          "description": "Boostez votre recrutement en sollicitant nos Doers directement par message.",
+          "cta": "Booster mon annonce ->",
+          "iconSrc": "⚡️",
+          "option1": "0,50€ pour 200 messages",
+          "option2": "1,50€ pour 500 messages"
+        },
+        "sponso-info-dialog": {
+          "title": "Besoin de plus de candidatures ?",
+          "description": "Obtenez davantage de candidatures en sponsorisant votre annonce directement sur Instagram. Nous nous occupons des paramètres de ciblage.",
+          "cta": "Sponsoriser mon annonce ->",
+          "iconSrc": "📣",
+          "option1": "Ticket de 5€",
+          "option2": "Ticket de 10€",
+          "option3": "Ticket de 20€"
+        },
+        "beta-tester-card": {
+          "button": "S’inscrire ->",
+          "description": "Nous recherchons des bêta-testeurs pour la version 2 de votre dashboard, cliquez ici si vous souhaitez y participer ->",
+          "title": "Devenez bêta-testeur 💻"
+        },
+        "boost-card": {
+          "button": "Booster mon annonce ->",
+          "description": "Notifiez nos utilisateurs directement par message pour réduire les délais de candidatures.",
+          "title": "Une urgence ?"
+        },
+        "com-card": {
+          "button": "Aller sur Instagram ->",
+          "description": "Découvrez votre annonce sur notre page Instagram ->",
+          "title": "À quoi ressemble mon annonce ? 🤔"
+        },
+        "help-card": {
+          "button": "lucas@hellodoe.co ->",
+          "description": "Contactez-nous par mail, nos équipes vous répondront dès que possible :",
+          "title": "Besoin d’aide ? 🚨"
+        },
+        "page-description": "Ici, on répond à toutes vos questions.",
+        "sponsor-card": {
+          "button": "Sponsoriser mon annonce ->",
+          "description": "Obtenez davantage de candidatures en sponsorisant votre annonce.",
+          "title": "Vous en faites toujours plus que les autres ?"
+        },
+        "stripe-card": {
+          "button": "En savoir plus ->",
+          "description": "Tous vos paiements sont sécurisés par Stripe © ->",
+          "title": "Stripe Checkout 💳"
+        }
+      },
+      "login": {
+        "title": "Ravi de vous revoir !"
+      },
+      "recruitment-page": {
+        "conception-card": {
+          "button": "Voir mon annonce ->",
+          "description": "Vos annonces sont pensées & designées pour répondre aux nouveaux codes de lecture des jeunes, et maximiser les volumes de candidatures.",
+          "label": "Étape 1️⃣",
+          "title": "La conception ✏️ de votre annonce"
+        },
+        "diffusion-card": {
+          "button": "Sponsorisez mon annonce ->",
+          "description": "Vos annonces sont publiées sur Instagram - là ou les jeunes passent le plus de temps - en post et en story. Vous n’avez pas reçu assez de candidatures ?",
+          "label": "Étape 2️⃣",
+          "title": "La diffusion 📡️ de votre annonce"
+        },
+        "page-description": "Ici, vous retrouvez toutes les étapes qui vous assurent l'optimisation à la fois des délais et des candidatures",
+        "preselection-card": {
+          "button": "Voir toutes les suggestions ->",
+          "description": "Pour vérifier qu'ils correspondent à vos critères de recherche, les candidats passent une série de quizz sur notre chatbot Messenger. Nous vous suggérons ensuite les meilleurs.",
+          "label": "Étape 3️⃣",
+          "title": "La présélection  🤖 des candidatures"
+        },
+        "selection-card": {
+          "button": "Aller aux candidatures ->",
+          "description": "À la fin des quizz, les candidats vous envoient une vidéo de présentation. Vous n’avez plus qu’à mettre en Favoris les profils que vous préférez.",
+          "label": "Étape 4️⃣",
+          "title": "La sélection 📹 des candidats"
+        },
+        "paiement-card": {
+          "button": "Accéder au paiement ->",
+          "description": "Une fois que vous avez choisi les candidats que vous préférez, vous pouvez débloquer leurs infos de contact en accédant au paiement.",
+          "label": "Étape 5️⃣",
+          "title": "Débloquez les informations de contact"
+        },
+        "unlock-card": {
+          "button": "Voir les Doers débloqués ->",
+          "description": "Si vous trouvez votre bonheur dans les Doers contactés, il ne nous reste plus qu’à vous souhaiter une bonne collaboration. Sinon, vous pouvez toujours en débloquer de nouveaux depuis vos favoris.",
+          "label": "Étape 6️⃣",
+          "title": "Votre mission peut commencer"
+        }
+      },
+      "tutorial-dashboard-page": {
+        "favorite-card": {
+          "button": "Afficher ->",
+          "description": "Tous les candidats qui ont retenu votre attention apparaissent dans cette liste. Accédez au paiement pour débloquer leurs informations & les contacter.",
+          "title": "Favoris ❤️"
+        },
+        "others-card": {
+          "button": "Afficher ->",
+          "description": "Nous affichons tous les candidats à votre annonce en les classant en fonction de leur score final aux quiz.",
+          "title": "Autres candidatures 📑"
+        },
+        "page-description": "Ici, on vous explique comment marche l’onglet ‘Mes Candidatures’ de votre Dashboard.",
+        "suggestion-card": {
+          "button": "Afficher ->",
+          "description": "Ces candidats ont passé les quiz de compétences avec succès, et nous pensons qu’ils méritent votre attention.",
+          "title": "En Suggestion 🤖"
+        },
+        "unlocked-card": {
+          "button": "Afficher ->",
+          "description": "Tous les candidats pour qui vous avez débloqué les infos de contact apparaissent ici. Il ne vous reste plus qu’à les contacter.",
+          "title": "Débloqués 🔓"
+        }
+      }
+    },
+    "doer-selection": {
+      "access-contact-information": "Accéder aux informations de contact | Accéder aux informations de contact ({count}) | Accéder aux informations de contact ({count})",
+      "all-pages-loaded": "Tous les doers présélectionnés vous ont été présentés",
+      "title": "Sélection des Doers"
+    }
+  },
+  "placeholders": {
+    "answer-example": "C'est...",
+    "filter-keywords": "Filtrer par mot-clés",
+    "no-options": "Pas d'option",
+    "question-example": "Qu'est ce que... ?",
+    "tags": "Tags",
+    "text-example": "Le principe de...",
+    "url-example": "https://www.john.doe..."
+  }
+}

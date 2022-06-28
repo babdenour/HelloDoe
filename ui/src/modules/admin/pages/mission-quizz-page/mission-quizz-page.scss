@@ -1,0 +1,21 @@
+.mission-quizz-page {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__form-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-self: center;
+    width: 800px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: auto;
+  }
+}

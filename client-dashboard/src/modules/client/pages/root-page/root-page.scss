@@ -1,0 +1,30 @@
+* {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+}
+
+.root-page {
+  height: 100vh;
+  display: flex;
+
+  &__page-menu {
+    display: flex;
+    flex: 1;
+  }
+
+  &__page {
+    display: flex;
+    flex: 3;
+  }
+}
+
+.menu-transition-enter-active,
+.menu-transition-leave-active {
+  transition: 0.2s;
+}
+
+.menu-transition-enter,
+.menu-transition-leave-to {
+  opacity: 0;
+  transform: translate(0, -40px);
+}

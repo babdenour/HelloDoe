@@ -1,0 +1,359 @@
+@import 'colors.scss';
+@import url('https://rsms.me/inter/inter.css');
+
+.mission-webview-page::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.mission-webview-page__scroll-menu::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.mission-webview-page {
+  font-family: coolvetica, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background-color: #fdfdfd;
+
+  &__scroll-menu {
+    display: flex;
+    width: 100vw;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    position: fixed;
+    overflow-x: scroll;
+    height: 54px;
+    background-color: #fdfdfd;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.08);
+
+    &__menu-option {
+      color: black;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-left: 5px;
+      width: fit-content;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-top: 2px;
+      height: 34px;
+      border-radius: 106px;
+      background-color: #f1f0f0;
+      font-family: coolvetica, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 21px;
+      line-height: 25px;
+      align-items: center;
+    }
+  }
+}
+
+.bulle {
+  margin-bottom: 32px;
+}
+
+.endBulle {
+  margin-top: 25px;
+}
+
+.day {
+  display: flex;
+  flex: 0 0 70px;
+  flex-direction: column;
+  padding-left: 9px;
+}
+
+.weekDisplay {
+  display: flex;
+}
+
+.hours {
+  display: flex;
+  flex-grow: 1;
+  border-radius: 4px;
+  height: 50px;
+  font-family: coolvetica, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 25px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.contenuHours {
+  text-align: center !important;
+  vertical-align: middle !important;
+  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 34px;
+  padding-left: 7px;
+  padding-right: 7px;
+  background-color: #f1f0f0;
+  line-height: 34px;
+}
+
+.dayName {
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.dayDate {
+  display: flex;
+  width: 52px;
+  height: 22px;
+  left: 9px;
+  top: 238px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.dayLi {
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+#calendar {
+  list-style: none;
+  padding-left: 0;
+}
+
+.intro {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  margin-left: 11px;
+  text-align: left;
+  width: 213px;
+  color: black;
+  background-color: #f1f0f0;
+  border-radius: 18px 18px 18px 4px;
+}
+
+.textintro {
+  width: 195px;
+  margin-top: 6px;
+  margin-left: 9px;
+  margin-bottom: 6px;
+}
+
+.logoHello {
+  display: inline-block;
+  margin-left: 10px;
+  width: 24px;
+}
+
+.imageHello {
+  display: inline-block;
+  width: 24px;
+}
+
+.month {
+  display: flex;
+  scroll-margin-top: 50px;
+  width: 100vw;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.displayMonth {
+  display: inline-block;
+}
+
+.monthPos {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: auto;
+  vertical-align: middle;
+  width: fit-content;
+}
+
+.week {
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 13px;
+  color: #6a6a6a;
+}
+
+.containerCalendar {
+  margin-top: 98px;
+}
+
+.shift {
+  margin-top: -5px;
+}
+
+.colorShift0 {
+  background-color: #7bb7cc;
+}
+
+.colorShift1 {
+  background-color: #fedde4;
+}
+
+.colorShift2 {
+  background-color: #bae6d7;
+}
+
+.colorShift3 {
+  background-color: #fcedcf;
+}
+
+.colorShift4 {
+  background-color: #cdc6ff;
+}
+
+.colorShift5 {
+  background-color: #b8d2ff;
+}
+
+.colorShift6 {
+  background-color: #efd4af;
+}
+
+.imageMonth {
+  width: auto;
+}
+
+.backgroundMonth0 {
+  background-image: url('../../../../assets/calendar-month-background/january-bg-1@2x.png');
+}
+
+.backgroundMonth1 {
+  background-image: url('../../../../assets/calendar-month-background/february-bg-1@2x.png');
+}
+
+.backgroundMonth2 {
+  background-image: url('../../../../assets/calendar-month-background/march-bg-1@2x.png');
+}
+
+.backgroundMonth3 {
+  background-image: url('../../../../assets/calendar-month-background/april-bg-1@2x.png');
+}
+
+.backgroundMonth4 {
+  background-image: url('../../../../assets/calendar-month-background/may-bg-1@2x.png');
+}
+
+.backgroundMonth5 {
+  background-image: url('../../../../assets/calendar-month-background/june-bg-1@2x.png');
+}
+
+.backgroundMonth6 {
+  background-image: url('../../../../assets/calendar-month-background/july-bg-1@2x.png');
+}
+
+.backgroundMonth7 {
+  background-image: url('../../../../assets/calendar-month-background/august-bg-1@2x.png');
+}
+
+.backgroundMonth8 {
+  background-image: url('../../../../assets/calendar-month-background/september-bg-1@2x.png');
+}
+
+.backgroundMonth9 {
+  background-image: url('../../../../assets/calendar-month-background/october-bg-1@2x.png');
+}
+
+.backgroundMonth10 {
+  background-image: url('../../../../assets/calendar-month-background/november-bg-1@2x.png');
+}
+
+.backgroundMonth11 {
+  background-image: url('../../../../assets/calendar-month-background/december-bg-1@2x.png');
+}
+
+.spanEmptyMonth {
+  flex-shrink: 2;
+  flex-grow: 2;
+}
+
+.backgroundDisplay {
+  display: flex;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.textmonth {
+  margin: auto;
+  text-align: center;
+  font-size: 21px;
+  color: black;
+  justify-content: center;
+}
+
+.blockText {
+  display: flex;
+  padding: 23px 53px 23px 53px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 320px;
+}
+
+.blacktext {
+  background-color: black;
+  color: white;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.normaltext {
+  display: inline-block;
+}
+
+.emojiHours {
+  border-radius: 106px;
+  text-align: center;
+  width: 43px;
+}
+
+.emojileft {
+  flex: 0;
+  margin-left: 11px;
+}
+
+.emojiright {
+  flex: 0;
+  margin-right: 11px;
+}
+
+.hourright {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.hourleft {
+  flex: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.buttonOn {
+  background-color: black !important;
+  color: white !important;
+}

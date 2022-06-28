@@ -1,0 +1,22 @@
+<div class="doer container card">
+  <div class="doer-id">#{{ get(doer, '_id') }}</div>
+  <div class="row">
+    <div class="doer-pic col-xs-12 col-sm-2">
+      <img :src="get(doer, 'profile.imgUrl')"
+           alt="Profil picture doer" />
+    </div>
+    <div class="doer-infos col-xs-12 col-sm-6">
+      <ul>
+        <li class="ranking">⭐️{{ get(doer, 'workProfile.rating') }}/5</li>
+        <li>
+          <span class="first-name">👨‍🎓 {{ get(doer, 'profile.first_name') }}</span>
+          <span class="last-name">{{ get(doer, 'profile.last_name') }}</span>
+        </li>
+        <li>📞{{ get(doer, 'profile.phone') }}</li>
+        <li>
+          <a :href="'mailto:' + get(doer, 'profile.email')">📧{{ get(doer, 'profile.email') }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

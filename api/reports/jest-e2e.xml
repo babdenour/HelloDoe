@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="52" failures="0" errors="0" time="7.468">
+  <testsuite name="MissionsController E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:39" time="1.987" tests="12">
+    <testcase classname="MissionsController E2E › /GET all missions should get all missions" name="MissionsController E2E › /GET all missions should get all missions" time="0.063">
+    </testcase>
+    <testcase classname="MissionsController E2E › /GET a mission › if mission exists should get the mission" name="MissionsController E2E › /GET a mission › if mission exists should get the mission" time="0.021">
+    </testcase>
+    <testcase classname="MissionsController E2E › /GET a mission › if mission has client should populate client" name="MissionsController E2E › /GET a mission › if mission has client should populate client" time="0.025">
+    </testcase>
+    <testcase classname="MissionsController E2E › /GET a mission › if mission does not exist should return resource not found" name="MissionsController E2E › /GET a mission › if mission does not exist should return resource not found" time="0.035">
+    </testcase>
+    <testcase classname="MissionsController E2E › /POST createWithoutPayment should create mission" name="MissionsController E2E › /POST createWithoutPayment should create mission" time="0.031">
+    </testcase>
+    <testcase classname="MissionsController E2E › /POST add candidates › when add a candidate should add candidate" name="MissionsController E2E › /POST add candidates › when add a candidate should add candidate" time="0.019">
+    </testcase>
+    <testcase classname="MissionsController E2E › /POST add candidates › when mission does not exist should return failure" name="MissionsController E2E › /POST add candidates › when mission does not exist should return failure" time="0.01">
+    </testcase>
+    <testcase classname="MissionsController E2E › /PUT update time table › when update time table should update time table" name="MissionsController E2E › /PUT update time table › when update time table should update time table" time="0.022">
+    </testcase>
+    <testcase classname="MissionsController E2E › /PUT update time table › when mission does not exist should return 404" name="MissionsController E2E › /PUT update time table › when mission does not exist should return 404" time="0.011">
+    </testcase>
+    <testcase classname="MissionsController E2E › /GET quizz › if quizz exists should return quizz" name="MissionsController E2E › /GET quizz › if quizz exists should return quizz" time="0.026">
+    </testcase>
+    <testcase classname="MissionsController E2E › /GET quizz › if quizz does not exist should return 404" name="MissionsController E2E › /GET quizz › if quizz does not exist should return 404" time="0.011">
+    </testcase>
+    <testcase classname="MissionsController E2E › /POST create quizz › if user is authorized should create quizz" name="MissionsController E2E › /POST create quizz › if user is authorized should create quizz" time="0.018">
+    </testcase>
+  </testsuite>
+  <testsuite name="QuestionsController E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:41" time="0.854" tests="5">
+    <testcase classname="QuestionsController E2E › /POST create question › if user is authorized should create question" name="QuestionsController E2E › /POST create question › if user is authorized should create question" time="0.159">
+    </testcase>
+    <testcase classname="QuestionsController E2E › /PUT update question › if user is authorized › if question exists should update question" name="QuestionsController E2E › /PUT update question › if user is authorized › if question exists should update question" time="0.081">
+    </testcase>
+    <testcase classname="QuestionsController E2E › /PUT update question › if user is authorized › if question does not exist should return 404" name="QuestionsController E2E › /PUT update question › if user is authorized › if question does not exist should return 404" time="0.09">
+    </testcase>
+    <testcase classname="QuestionsController E2E › /GET questions by tags › if user is authorized should get questions by tags" name="QuestionsController E2E › /GET questions by tags › if user is authorized should get questions by tags" time="0.072">
+    </testcase>
+    <testcase classname="QuestionsController E2E › /GET all question tags › if user is authorized should get all question tags" name="QuestionsController E2E › /GET all question tags › if user is authorized should get all question tags" time="0.071">
+    </testcase>
+  </testsuite>
+  <testsuite name="QuizzesController E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:42" time="0.703" tests="3">
+    <testcase classname="QuizzesController E2E › /POST create quizz › if user is authorized should create quizz" name="QuizzesController E2E › /POST create quizz › if user is authorized should create quizz" time="0.147">
+    </testcase>
+    <testcase classname="QuizzesController E2E › /PUT update quizz › if user is authorized should update quizz" name="QuizzesController E2E › /PUT update quizz › if user is authorized should update quizz" time="0.096">
+    </testcase>
+    <testcase classname="QuizzesController E2E › /PUT update quizz › if quizz ids dont match should return bad request" name="QuizzesController E2E › /PUT update quizz › if quizz ids dont match should return bad request" time="0.08">
+    </testcase>
+  </testsuite>
+  <testsuite name="ChatbotController E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:42" time="0.63" tests="2">
+    <testcase classname="ChatbotController E2E › /POST handle action › when handle action successfully should return 200" name="ChatbotController E2E › /POST handle action › when handle action successfully should return 200" time="0.122">
+    </testcase>
+    <testcase classname="ChatbotController E2E › /POST handle action › when raises error should return 500" name="ChatbotController E2E › /POST handle action › when raises error should return 500" time="0.116">
+    </testcase>
+  </testsuite>
+  <testsuite name="ClientsController E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:43" time="0.612" tests="2">
+    <testcase classname="ClientsController E2E › /GET all clients › if user is admin should get all clients" name="ClientsController E2E › /GET all clients › if user is admin should get all clients" time="0.14">
+    </testcase>
+    <testcase classname="ClientsController E2E › /GET all clients › if user is doer should get 403" name="ClientsController E2E › /GET all clients › if user is doer should get 403" time="0.089">
+    </testcase>
+  </testsuite>
+  <testsuite name="HealthCheckController E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:43" time="0.526" tests="1">
+    <testcase classname="HealthCheckController E2E › /GET check health should check health" name="HealthCheckController E2E › /GET check health should check health" time="0.108">
+    </testcase>
+  </testsuite>
+  <testsuite name="AgenciesController E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:44" time="0.591" tests="1">
+    <testcase classname="AgenciesController E2E › /GET all agencies › if user is admin should get all agencies" name="AgenciesController E2E › /GET all agencies › if user is admin should get all agencies" time="0.223">
+    </testcase>
+  </testsuite>
+  <testsuite name="TimeTableParam E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:45" time="0.418" tests="6">
+    <testcase classname="TimeTableParam E2E › should pass when time table flexible" name="TimeTableParam E2E › should pass when time table flexible" time="0.009">
+    </testcase>
+    <testcase classname="TimeTableParam E2E › should pass when time table not flexible" name="TimeTableParam E2E › should pass when time table not flexible" time="0.006">
+    </testcase>
+    <testcase classname="TimeTableParam E2E › should return 400 when missing hourly volume" name="TimeTableParam E2E › should return 400 when missing hourly volume" time="0.006">
+    </testcase>
+    <testcase classname="TimeTableParam E2E › should return 400 when missing schedule" name="TimeTableParam E2E › should return 400 when missing schedule" time="0.003">
+    </testcase>
+    <testcase classname="TimeTableParam E2E › should return 400 when partial slot" name="TimeTableParam E2E › should return 400 when partial slot" time="0.003">
+    </testcase>
+    <testcase classname="TimeTableParam E2E › should return 400 when partial shift" name="TimeTableParam E2E › should return 400 when partial shift" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="UpdateQuestionParams E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:45" time="0.421" tests="10">
+    <testcase classname="UpdateQuestionParams E2E › should pass when happy path" name="UpdateQuestionParams E2E › should pass when happy path" time="0.009">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should pass when different types of messages and tags" name="UpdateQuestionParams E2E › should pass when different types of messages and tags" time="0.007">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when no id" name="UpdateQuestionParams E2E › should return 400 when no id" time="0.006">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when id not mongo id" name="UpdateQuestionParams E2E › should return 400 when id not mongo id" time="0.003">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when no tags" name="UpdateQuestionParams E2E › should return 400 when no tags" time="0.004">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when quick replies message with insufficient choices" name="UpdateQuestionParams E2E › should return 400 when quick replies message with insufficient choices" time="0.003">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when quick replies message with no choices" name="UpdateQuestionParams E2E › should return 400 when quick replies message with no choices" time="0.003">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when quick replies message with malformed choices" name="UpdateQuestionParams E2E › should return 400 when quick replies message with malformed choices" time="0.005">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when unsupported message type" name="UpdateQuestionParams E2E › should return 400 when unsupported message type" time="0.004">
+    </testcase>
+    <testcase classname="UpdateQuestionParams E2E › should return 400 when missing type" name="UpdateQuestionParams E2E › should return 400 when missing type" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="CreateQuestionParams E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:45" time="0.461" tests="8">
+    <testcase classname="CreateQuestionParams E2E › should pass when no messages and one tag" name="CreateQuestionParams E2E › should pass when no messages and one tag" time="0.013">
+    </testcase>
+    <testcase classname="CreateQuestionParams E2E › should pass when different types of messages and tags" name="CreateQuestionParams E2E › should pass when different types of messages and tags" time="0.006">
+    </testcase>
+    <testcase classname="CreateQuestionParams E2E › should return 400 when no tags" name="CreateQuestionParams E2E › should return 400 when no tags" time="0.004">
+    </testcase>
+    <testcase classname="CreateQuestionParams E2E › should return 400 when quick replies message with insufficient choices" name="CreateQuestionParams E2E › should return 400 when quick replies message with insufficient choices" time="0.004">
+    </testcase>
+    <testcase classname="CreateQuestionParams E2E › should return 400 when quick replies message with no choices" name="CreateQuestionParams E2E › should return 400 when quick replies message with no choices" time="0.004">
+    </testcase>
+    <testcase classname="CreateQuestionParams E2E › should return 400 when quick replies message with malformed choices" name="CreateQuestionParams E2E › should return 400 when quick replies message with malformed choices" time="0.004">
+    </testcase>
+    <testcase classname="CreateQuestionParams E2E › should return 400 when unsupported message type" name="CreateQuestionParams E2E › should return 400 when unsupported message type" time="0.004">
+    </testcase>
+    <testcase classname="CreateQuestionParams E2E › should return 400 when missing type" name="CreateQuestionParams E2E › should return 400 when missing type" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="MissionRequirementsParam E2E" errors="0" failures="0" skipped="0" timestamp="2021-05-17T16:05:46" time="0.18" tests="2">
+    <testcase classname="MissionRequirementsParam E2E › should pass when requirements specified" name="MissionRequirementsParam E2E › should pass when requirements specified" time="0.013">
+    </testcase>
+    <testcase classname="MissionRequirementsParam E2E › should pass when requirements empty" name="MissionRequirementsParam E2E › should pass when requirements empty" time="0.003">
+    </testcase>
+  </testsuite>
+</testsuites>

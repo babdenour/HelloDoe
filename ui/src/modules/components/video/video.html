@@ -1,0 +1,15 @@
+<div class="video"
+     :style="videoContainerCssVars"
+     ref="host">
+  <video class="video__video-player"
+         preload="metadata"
+         @ended="emitVideoEnded"
+         @loadedmetadata="initializeVideo"
+         @timeupdate="syncCurrentTime"
+         ref="video-player"
+         data-test-id="video-player">
+    <source :src="src"
+            type="video/mp4"
+            ref="source" />
+  </video>
+</div>

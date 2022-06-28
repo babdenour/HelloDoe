@@ -1,0 +1,29 @@
+<div class="page-menu">
+  <div class="page-menu__main-menu">
+    <div class="page-menu__main-menu-logo-hellodoe">
+      <img alt="logohellodoe"
+           :src="logoHelloDoe" />
+    </div>
+  </div>
+
+  <div class="page-menu__sub-menu">
+    <hd-menu-button v-for="nav in navItems"
+                    class="page-menu__sub-menu-button"
+                    :title="nav.buttonTitle"
+                    :is-selected="isButtonSelected(nav.pageName)"
+                    @click.native="emitPageSelected(nav.pageName)"
+                    :data-test-id="nav.pageName">
+      <template #icon>{{nav.asset}}</template>
+    </hd-menu-button>
+
+    <span class="spacer"></span>
+    <slot></slot>
+
+    <hd-menu-button class="page-menu__sub-menu-button"
+                    :title="i18n.titleUnlockFavorite"
+                    @click.native="emitRedirectToCheckoutEvent"
+                    data-test-id="unlock-favorites-button">
+      <template #icon>❤️</template>
+    </hd-menu-button>
+  </div>
+</div>

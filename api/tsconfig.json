@@ -1,0 +1,113 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2017"
+    ],
+    "target": "es6",
+    "sourceMap": true,
+    "module": "commonjs",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "paths": {
+      "@api": [
+        "src/modules/api"
+      ],
+      "@api/*": [
+        "src/modules/api/*"
+      ],
+      "@bridge": [
+        "src/modules/bridge"
+      ],
+      "@bridge/*": [
+        "src/modules/bridge/*"
+      ],
+      "@business": [
+        "src/modules/business"
+      ],
+      "@business/*": [
+        "src/modules/business/*"
+      ],
+      "@chatbot": [
+        "src/modules/chatbot"
+      ],
+      "@chatbot/*": [
+        "src/modules/chatbot/*"
+      ],
+      "@config": [
+        "src/modules/config"
+      ],
+      "@config/*": [
+        "src/modules/config/*"
+      ],
+      "@crypto": [
+        "src/modules/crypto"
+      ],
+      "@crypto/*": [
+        "src/modules/crypto/*"
+      ],
+      "@database": [
+        "src/modules/database"
+      ],
+      "@database/*": [
+        "src/modules/database/*"
+      ],
+      "@i18n": [
+        "src/modules/i18n"
+      ],
+      "@i18n/*": [
+        "src/modules/i18n/*"
+      ],
+      "@payment": [
+        "src/modules/payment"
+      ],
+      "@payment/*": [
+        "src/modules/payment/*"
+      ],
+      "@token": [
+        "src/modules/token"
+      ],
+      "@token/*": [
+        "src/modules/token/*"
+      ],
+      "@mocks": [
+        "src/mocks"
+      ],
+      "@libs/*": [
+        "src/libs/*"
+      ],
+      "@mocks/*": [
+        "src/mocks/*"
+      ],
+      "@sdk/*": [
+        "src/modules/sdk/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ]
+    }
+  },
+  "files": [
+    "./node_modules/@types/mocha/index.d.ts",
+    "./node_modules/@types/node/index.d.ts"
+  ],
+  "include": [
+    "libs/cli",
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/test/**/*",
+    "src/**/*.test.js",
+    "src/**/*.test.ts"
+  ]
+}

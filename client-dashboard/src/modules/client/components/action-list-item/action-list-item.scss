@@ -1,0 +1,75 @@
+@import 'colors.scss';
+
+.action-list-item {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(86.31deg, #fff8fd 0%, #e8f7ff 55.73%, #fff8f4 100%);
+  border-radius: 6px;
+  padding: 19px 0;
+
+  &:hover {
+    transition: all 0.2s ease;
+
+    .action-list-item {
+      &__call-to-action {
+        background-color: #111;
+      }
+    }
+
+    .arrow {
+      fill: #fdfdfd;
+    }
+  }
+
+  &__icon {
+    margin-left: 25px;
+    width: 40px;
+    font-size: 30px;
+    vertical-align: center;
+  }
+
+  &-infos {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+
+    &-top {
+      font-weight: bold;
+      line-height: 20px;
+      font-size: 16px;
+      color: black;
+    }
+
+    &-bottom {
+      font-weight: 300;
+      font-size: 16px;
+      color: #6a6a6a;
+    }
+  }
+
+  &__call-to-action {
+    background-color: #fdfdfd;
+    border-radius: 50%;
+    padding: 10px 12px;
+    line-height: 20px;
+    height: fit-content;
+    margin-right: 16px;
+
+    &__arrow-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 20px;
+    }
+  }
+
+  .spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .arrow {
+    fill: #111;
+  }
+}

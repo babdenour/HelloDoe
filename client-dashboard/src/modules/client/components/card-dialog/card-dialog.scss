@@ -1,0 +1,71 @@
+.card-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 40px 48px 40px;
+  background: linear-gradient(86.31deg, #fff8fd 0%, #e8f7ff 55.73%, #fff8f4 100%);
+  border-radius: 12px;
+
+  &__icon {
+    margin-bottom: 48px;
+    font-size: 82px;
+    line-height: 82px;
+    height: 82px;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 34px;
+    color: #000;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: auto;
+    margin-bottom: 32px;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__option {
+      flex-shrink: 0;
+      flex-basis: auto;
+      height: 26px;
+      line-height: 26px;
+      font-weight: bold;
+      font-size: 14px;
+      background-color: white;
+      overflow: auto;
+      border-radius: 100px;
+      border: gray 1px;
+      margin: 0 5px;
+      padding: 0 12px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 40px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &__cta {
+    background: #111;
+    border-radius: 150px;
+    color: #fdfdfd;
+    padding: 12px 24px;
+    cursor: pointer;
+  }
+
+  .fa-clone {
+    margin-left: 4px;
+  }
+}

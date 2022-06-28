@@ -1,0 +1,43 @@
+@import 'colors.scss';
+
+.overlay-mission-creation {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(248, 248, 248, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s;
+  overflow-y: auto;
+  z-index: 1000;
+
+  a {
+    text-decoration: none;
+    font-size: 3em;
+    padding-bottom: 1vh;
+    color: #4b4b4b;
+    display: block;
+    font-weight: 900;
+    transition: 0.3s;
+    z-index: 4;
+
+    &:hover,
+    &:focus {
+      color: #050505;
+      z-index: 4;
+    }
+  }
+
+  .overlay-close-btn {
+    position: absolute;
+    top: 5vh;
+    right: 10vh;
+    font-size: 10vh;
+    z-index: 4;
+  }
+
+  .overlay-content {
+    width: 70%;
+  }
+}

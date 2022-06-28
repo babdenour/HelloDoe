@@ -1,0 +1,12 @@
+<div class="checkout-failure">
+  <div class="checkout-failure__card">
+    <i class="el-icon-lightning checkout-failure__icon"></i>
+    <h1 class="checkout-failure__title"
+        data-test-id="title">{{ i18n.title }}</h1>
+    <p data-test-id="subtitle">{{ i18n.subtitle }}</p>
+    <el-button type="primary"
+               round
+               @click="redirectToDashboard"
+               data-test-id="back-button">{{ i18n.validate }}</el-button>
+  </div>
+</div>

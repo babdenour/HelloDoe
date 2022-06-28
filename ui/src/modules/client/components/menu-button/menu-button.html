@@ -1,0 +1,9 @@
+<div class="menu-button"
+     :class="selectedClass">
+  <div class="menu-button__title"
+       data-test-id="menu-button-title">{{title}}</div>
+  <span class="menu-button__spacer"></span>
+  <div class="menu-button__icon">
+    <slot name="icon"> </slot>
+  </div>
+</div>

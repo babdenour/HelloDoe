@@ -1,0 +1,22 @@
+<el-dialog class="question-dialog-form"
+           width="50%"
+           :visible="show"
+           @update:visible="emitClose"
+           data-test-id="dialog">
+  <div class="question-dialog-form__body">
+    <hd-question-form :messages="form.messages"
+                      :tags="form.tags"
+                      ref="questionForm"></hd-question-form>
+
+    <div class="question-dialog-form__footer"
+         slot="footer">
+      <el-button class="question-dialog-form__save-button"
+                 type="primary"
+                 :loading="savingQuestion"
+                 @click="validateForm"
+                 data-test-id="save-button">
+        {{saveButtonText}}
+      </el-button>
+    </div>
+  </div>
+</el-dialog>

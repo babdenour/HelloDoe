@@ -1,0 +1,294 @@
+<div class="mission-information-form">
+  <div class="mission-information-form__content container-fluid mx-auto px-0 py-4">
+    <div class="form-row date"
+         v-for="(d, idx) in form.missionDates"
+         :key="idx">
+      <div class="form-group col-md-6">
+        <span class="delete-date"
+              v-if="form.missionDates.length > 1"
+              @click="removeDate(idx)">( 🗑)</span>
+        <label :for="`missionDate${idx}`">
+          Journée
+          <span v-if="form.missionDates.length > 1">{{ idx + 1 }}</span>
+        </label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">📅</div>
+          </div>
+          <input class="form-control"
+                 :id="`missionDate${idx}`"
+                 type="date"
+                 v-model="form.missionDates[idx].date.value"
+                 @input="checkInput"
+                 @blur="checkInput" />
+        </div>
+        <div class="text-danger"
+             v-if="form.missionDates[idx].date.valid === false">
+          {{ form.missionDates[idx].date.errorMsg }}
+        </div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="`missionTimeBegin${idx}`">Heure de début</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">⏰</div>
+          </div>
+          <input class="form-control"
+                 :id="`missionTimeBegin${idx}`"
+                 type="time"
+                 v-model="form.missionDates[idx].timeBegin.value"
+                 @input="checkInput"
+                 @blur="checkInput" />
+        </div>
+        <div class="text-danger"
+             v-if="form.missionDates[idx].timeBegin.valid === false">
+          {{ form.missionDates[idx].timeBegin.errorMsg }}
+        </div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="`missionTimeEnd${idx}`">Heure de fin</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">⏰</div>
+          </div>
+          <input class="form-control"
+                 :id="`missionTimeEnd${idx}`"
+                 type="time"
+                 v-model="form.missionDates[idx].timeEnd.value"
+                 @input="checkInput"
+                 @blur="checkInput" />
+        </div>
+        <div class="text-danger"
+             v-if="form.missionDates[idx].timeEnd.valid === false">
+          {{ form.missionDates[idx].timeEnd.errorMsg }}
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary mb-2"
+            @click="addDate">
+      + Ajouter une journée
+    </button>
+
+    <div class="form-row">
+      <div class="form-group col-md-9">
+        <label for="missionLocation">Adresse de la mission</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">📍</div>
+          </div>
+          <input class="form-control"
+                 id="missionLocation"
+                 type="text"
+                 placeholder="Lieu de la mission"
+                 v-model="form.missionLocation.value"
+                 @input="checkInput"
+                 @blur="checkInput" />
+        </div>
+        <div class="text-danger"
+             v-if="form.missionLocation.valid === false">
+          {{ form.missionLocation.errorMsg }}
+        </div>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="missionDistrict">Arrondissement</label>
+        <div class="input-group">
+          <select class="custom-select"
+                  id="missionDistrict"
+                  v-model="form.missionDistrict.value"
+                  @input="checkInput"
+                  @blur="checkInput">
+            <option v-for="(district, i) in districts"
+                    :selected="i === 0"
+                    :key="district.id"
+                    :value="district.id">{{
+              district.name
+              }}</option>
+          </select>
+        </div>
+        <div class="text-danger"
+             v-if="form.missionDistrict.valid === false">
+          {{ form.missionDistrict.errorMsg }}
+        </div>
+      </div>
+    </div>
+
+    <el-divider class="mission-information-form__divider"></el-divider>
+
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="agency">Agence</label>
+        <select class="custom-select"
+                id="agency"
+                v-model="form.agency.value"
+                @input="checkInput"
+                @blur="checkInput">
+          <option v-for="(agency, i) of agencies"
+                  :selected="i === 0"
+                  :key="agency.id"
+                  :value="agency.id">{{ agency.name }}</option>
+        </select>
+        <div class="text-danger"
+             v-if="form.agency.valid === false">
+          {{ form.agency.errorMsg }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="contractType">Type de contrat</label>
+        <select class="custom-select"
+                id="contractType"
+                v-model="form.contractType.value"
+                @input="checkInput"
+                @blur="checkInput">
+          <option v-for="(contractType, i) of contractTypes"
+                  :selected="i === 0"
+                  :key="contractType.key"
+                  :value="contractType.key">{{ contractType.value }}</option>
+        </select>
+        <div class="text-danger"
+             v-if="form.contractType.valid === false">
+          {{ form.contractType.errorMsg }}
+        </div>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="code">Code</label>
+        <input class="form-control"
+               id="code"
+               type="text"
+               placeholder="Code"
+               v-model="form.code.value"
+               @input="checkInput"
+               @blur="checkInput" />
+        <div class="text-danger"
+             v-if="form.code.valid === false">
+          {{ form.code.errorMsg }}
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="missionCategory">Catégorie</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">🏷️</div>
+          </div>
+          <select class="custom-select"
+                  id="missionCategory"
+                  v-model="form.missionCategory.value"
+                  @input="checkInput"
+                  @blur="checkInput">
+            <option v-for="(category, i) in categories"
+                    :selected="i === 0"
+                    :key="category.value"
+                    :value="category.value">{{ category.name }}</option>
+          </select>
+        </div>
+        <div class="text-danger"
+             v-if="form.missionCategory.valid === false">
+          {{ form.missionCategory.errorMsg }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tasks">Tâches à effectuer</label>
+      <hd-chips id="tasks"
+                class="mission-information-form__chips"
+                v-model="form.tasks.value">
+      </hd-chips>
+    </div>
+
+    <div class="form-group">
+      <label for="skills">Compétences recherchées</label>
+      <hd-chips id="skills"
+                class="mission-information-form__chips"
+                v-model="form.skills.value">
+      </hd-chips>
+    </div>
+
+    <div class="form-group">
+      <label for="attributes">Qualités recherchées</label>
+      <hd-chips id="attributes"
+                class="mission-information-form__chips"
+                v-model="form.attributes.value">
+      </hd-chips>
+    </div>
+
+    <div class="form-group">
+      <label for="tools">Matériel nécessaire</label>
+      <hd-chips id="tools"
+                class="mission-information-form__chips"
+                v-model="form.tools.value">
+      </hd-chips>
+    </div>
+
+    <div class="form-group">
+      <label for="missionDescription">Description</label>
+      <textarea class="form-control"
+                id="missionDescription"
+                style="min-height: 200px;"
+                placeholder="Votre description de la mission sera retranscrite telle quelle, essayez d'être le plus précis possible :
+
+              - Quel est l'intitulé du poste ?
+              - Que fait votre entreprise ?
+              - Quelles seront les taches à effectuer ?
+              - Les horaires sont-ils flexibles ?
+              - Y'a-t-il un dress code à respecter ?
+              "
+                v-model="form.missionDescription.value"
+                @input="checkInput"
+                @blur="checkInput"></textarea>
+      <div class="text-danger"
+           v-if="form.missionDescription.valid === false">
+        {{ form.missionDescription.errorMsg }}
+      </div>
+    </div>
+
+    <el-divider class="mission-information-form__divider"></el-divider>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="missionAmount">Rémunération horaire finale pour le travailleur</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">💰</div>
+          </div>
+          <input class="form-control"
+                 id="missionAmount"
+                 type="number"
+                 :placeholder="missionAmount"
+                 v-model.number="form.missionAmount.value"
+                 @input="checkInput"
+                 @blur="checkInput" />
+        </div>
+        <div class="text-danger"
+             v-if="form.missionAmount.valid === false">
+          {{ form.missionAmount.errorMsg }}
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="missionNbWorkers">Nombre de travailleurs</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">🎓</div>
+          </div>
+          <input class="form-control"
+                 id="missionNbWorkers"
+                 type="number"
+                 :placeholder="missionNbWorkers"
+                 v-model.number="form.missionNbWorkers.value"
+                 @input="checkInput"
+                 @blur="checkInput" />
+        </div>
+        <div class="text-danger"
+             v-if="form.missionNbWorkers.valid === false">
+          {{ form.missionNbWorkers.errorMsg }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

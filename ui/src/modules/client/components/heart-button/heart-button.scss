@@ -1,0 +1,29 @@
+.heart-button {
+  display: flex;
+  justify-content: center;
+
+  &__host {
+    align-items: center;
+    width: var(--size);
+
+    &:hover {
+      .heart-button__host__path {
+        fill: #fc4b3e;
+        stroke: #fc4b3e;
+        stroke-width: 2px;
+      }
+    }
+
+    &__path {
+      stroke: #6a6a6a;
+      stroke-width: 2px;
+      fill: transparent;
+
+      &--filled {
+        stroke: #fc4b3e;
+        stroke-width: 2px;
+        fill: #fc4b3e;
+      }
+    }
+  }
+}

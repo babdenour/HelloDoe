@@ -1,0 +1,37 @@
+{
+  "mission": {
+    "image": {
+      "ACCESS_CONTROL": "https://assets.chatbot.hellodoe.co/missions/ACCESS_CONTROL.jpg.jpg",
+      "ADMIN_HELP": "https://assets.chatbot.hellodoe.co/missions/ADMIN_HELP.jpg",
+      "ANIMATION_DEMONSTRATION": "https://assets.chatbot.hellodoe.co/missions/ANIMATION_DEMONSTRATION.jpg",
+      "ARGICULTURAL_EMPLOYEE": "https://assets.chatbot.hellodoe.co/missions/ARGICULTURAL_EMPLOYEE.jpg",
+      "BABY_SITTING": "https://assets.chatbot.hellodoe.co/missions/BABY_SITTING.jpg",
+      "CASH_AND_CARRY": "https://assets.chatbot.hellodoe.co/missions/CASH_AND_CARRY.jpg",
+      "COMMERCIAL_PROSPECTING": "https://assets.chatbot.hellodoe.co/missions/COMMERCIAL_PROSPECTING.jpg",
+      "CUSTOMER_SUPPORT": "https://assets.chatbot.hellodoe.co/missions/CUSTOMER_SUPPORT.jpg",
+      "DATA_ENTRY": "https://assets.chatbot.hellodoe.co/missions/DATA_ENTRY.jpg",
+      "DELIVERY": "https://assets.chatbot.hellodoe.co/missions/DELIVERY.jpg",
+      "DISH_WASHING": "https://assets.chatbot.hellodoe.co/missions/DISH_WASHING.jpg",
+      "DONOR_RECRUITER": "https://assets.chatbot.hellodoe.co/missions/DONOR_RECRUITER.jpg",
+      "FAST_FOOD": "https://assets.chatbot.hellodoe.co/missions/FAST_FOOD.jpg",
+      "HANDLING": "https://assets.chatbot.hellodoe.co/missions/HANDLING.jpg",
+      "HOST": "https://assets.chatbot.hellodoe.co/missions/HOST.jpg",
+      "HOST_VISITORS": "https://assets.chatbot.hellodoe.co/missions/HOST_VISITORS.jpg",
+      "INVENTORY": "https://assets.chatbot.hellodoe.co/missions/INVENTORY.jpg",
+      "LABELING_STOCK": "https://assets.chatbot.hellodoe.co/missions/LABELING_STOCK.jpg",
+      "LITTLE_HANDS": "https://assets.chatbot.hellodoe.co/missions/LITTLE_HANDS.jpg",
+      "LUXURY_SALE": "https://assets.chatbot.hellodoe.co/missions/LUXURY_SALE.jpg",
+      "MOVING": "https://assets.chatbot.hellodoe.co/missions/MOVING.jpg",
+      "ONLINE_SEARCH": "https://assets.chatbot.hellodoe.co/missions/ONLINE_SEARCH.jpg",
+      "PACKING": "https://assets.chatbot.hellodoe.co/missions/PACKING.jpg",
+      "SAlES_ASSISTANT": "https://assets.chatbot.hellodoe.co/missions/SAlES_ASSISTANT.jpg",
+      "SELF_SERVICE_MERCHANDISING": "https://assets.chatbot.hellodoe.co/missions/SELF_SERVICE_MERCHANDISING.jpg",
+      "SERVICE": "https://assets.chatbot.hellodoe.co/missions/SERVICE.jpg",
+      "STREET_MARKETING": "https://assets.chatbot.hellodoe.co/missions/STREET_MARKETING.jpg",
+      "TICKETING": "https://assets.chatbot.hellodoe.co/missions/TICKETING.jpg",
+      "VALET": "https://assets.chatbot.hellodoe.co/missions/VALET.jpg",
+      "WARDROBE": "https://assets.chatbot.hellodoe.co/missions/WARDROBE.jpg",
+      "DEFAULT": "https://assets.chatbot.hellodoe.co/missions/TICKETING.jpg"
+    }
+  }
+}

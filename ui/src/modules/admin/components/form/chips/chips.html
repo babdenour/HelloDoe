@@ -1,0 +1,25 @@
+<div class="chips">
+  <el-tag class="chips__tag"
+          v-for="tag in tags"
+          :key="tag"
+          type="info"
+          closable
+          @close="handleClose(tag)">
+    {{tag}}
+  </el-tag>
+
+  <el-input class="chips__input-new-tag"
+            v-if="inputVisible"
+            v-model="inputValue"
+            ref="saveTagInput"
+            size="small"
+            @keyup.enter.native="handleInputConfirm"
+            @blur="handleInputConfirm">
+  </el-input>
+
+  <el-button v-else
+             class="chips__button-new-tag"
+             size="small"
+             icon="el-icon-plus"
+             @click="showInput"> {{i18n.add}} </el-button>
+</div>

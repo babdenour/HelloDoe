@@ -1,0 +1,27 @@
+<div class="action-list-item">
+  <div class="action-list-item__icon">
+    <slot name="icon"></slot>
+  </div>
+  <div class="action-list-item-infos">
+    <div class="action-list-item-infos-top">
+      <div data-test-id="action-list-item-title">{{title}}</div>
+    </div>
+    <div class="action-list-item-infos-bottom">
+      <div data-test-id="action-list-item-subtitle"> {{subTitle}}</div>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <div class="action-list-item__call-to-action">
+    <div class="action-list-item__call-to-action__arrow-box">
+      <svg width="12"
+           height="12"
+           viewBox="0 0 12 12"
+           fill="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path class="arrow"
+              d="M6.39205 11.2102L5.36932 10.1989L8.92045 6.64773H0V5.17045H8.92045L5.36932 1.625L6.39205 0.607954L11.6932 5.90909L6.39205 11.2102Z" />
+      </svg>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.question-dialog-form {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &__save-button {
+    align-self: flex-end;
+  }
+}

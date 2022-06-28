@@ -1,0 +1,60 @@
+<div class="root-page">
+  <div class="root-page__page-menu">
+    <hd-page-menu @go-to-page="goToPage"
+                  @redirect-to-checkout="redirectToCheckout"
+                  :current-page-name="selectedPageName"
+                  data-test-id="page-menu"><template>
+        <div class="page-menu__sub-menu__action-mission-card"
+             @click.stop="">
+          <div v-if="showMissionMenu"
+               class="page-menu__sub-menu__action-mission-card__list-option"
+               data-test-id="mission-show-menu">
+            <hd-mission-info-action-button v-for="item in missionMenuItems"
+                                           :title=" item.buttonTitle"
+                                           @click.native="handleMenuActionButtonClick(item.buttonAction)">
+              <template #icon>
+                {{item.asset}}
+              </template>
+            </hd-mission-info-action-button>
+          </div>
+
+          <div class="page-menu__sub-menu__action-mission-card__mission-menu"
+               @click="toogleShowMissionMenu">
+            <span class="spacer"></span>
+            <div class="page-menu__sub-menu__action-mission-card__mission-menu__button">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <hd-mission-info-card :category="infoMission.category"
+                                :contract="infoMission.contract"
+                                :payment-amount="infoMission.paymentAmount"
+                                :payment-unit="infoMission.paymentUnit"
+                                :begin-at="infoMission.beginAt"
+                                :nb-workers="infoMission.nbWorkers"></hd-mission-info-card>
+
+        </div>
+      </template></hd-page-menu>
+  </div>
+  <div class="root-page__page">
+    <router-view @go-to-page="goToPage"></router-view>
+  </div>
+  <div>
+    <portal-target name="dialog">
+    </portal-target>
+  </div>
+
+  <hd-dialog :open.sync="isDialogOpen"
+             width="33%"
+             data-test-id="page-menu-dialog">
+    <hd-card-dialog :title="cardDialogInfo.title"
+                    :description="cardDialogInfo.description"
+                    :cta="cardDialogInfo.cta"
+                    :options="cardDialogInfo.options"
+                    :icon-src="cardDialogInfo.iconSrc"
+                    @cta-clicked="handleCardDialogCtaClicked"
+                    data-test-id="card-dialog"></hd-card-dialog>
+  </hd-dialog>
+</div>

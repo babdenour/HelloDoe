@@ -1,0 +1,29 @@
+$margin: 6px 3px;
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  > * {
+    box-sizing: border-box;
+  }
+
+  &__tag {
+    flex-shrink: 0;
+    margin: $margin;
+  }
+
+  &__button-new-tag {
+    margin: $margin;
+    height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &__input-new-tag {
+    flex-grow: 1;
+    margin: $margin;
+  }
+}

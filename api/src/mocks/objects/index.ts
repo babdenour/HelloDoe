@@ -1,0 +1,13 @@
+export { ActionTestImpl } from './action-test.impl';
+export { mockButtonPostbackSvc } from './button-postback.service';
+export { mockCandidateSvc } from './candidate.service';
+export { mockDoerRepo } from './doer.repository';
+export { mockI18nSvc } from './i18n.service';
+export { mockMessagingPlatform } from './messagin-platform';
+export { mockMessengerPayload } from './messenger-payload';
+export { mockMissionSvc } from './mission.service';
+export { mockMissionRepo } from './mission.repository';
+export { mockPaymentClt } from './payment.client';
+export { mockQuizzRepo } from './quizz.repository';
+export { mockQuizzSheetRepo } from './quizz-sheet.repository';
+export { mockQuizzSvc } from './quizz.service';

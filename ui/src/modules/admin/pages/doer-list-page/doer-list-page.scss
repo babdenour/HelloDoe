@@ -1,0 +1,20 @@
+@import 'colors.scss';
+
+.doers {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &-actions {
+    display: flex;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+
+    button {
+      margin: 0 5px;
+    }
+  }
+}

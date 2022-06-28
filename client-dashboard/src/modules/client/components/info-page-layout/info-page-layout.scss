@@ -1,0 +1,21 @@
+.info-page-layout {
+  background: #ededed;
+  padding: 20px 28px 32px 16px;
+  flex-grow: 1;
+  overflow: auto;
+
+  &__page-description {
+    padding-top: 16px;
+    margin-bottom: 24px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 34px;
+    color: #111;
+  }
+
+  &__card-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 16px;
+  }
+}

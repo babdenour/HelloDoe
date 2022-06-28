@@ -1,0 +1,30 @@
+.menu-button {
+  display: flex;
+  background: #ededed;
+  border-radius: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 7.34px;
+  padding-bottom: 7.34px;
+
+  &-selected {
+    background-color: #111;
+
+    .menu-button {
+      &__title {
+        color: #f9fafb;
+      }
+    }
+  }
+
+  &__spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 14px;
+    color: black;
+  }
+}

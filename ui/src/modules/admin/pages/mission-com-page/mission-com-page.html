@@ -1,0 +1,321 @@
+<hd-page class="mission-com-page"
+         title="Communication"
+         :menu="menu">
+  <div class="mission-com-page__content">
+    <el-card shadow="never">
+      <h5 slot="header">Input Instagram Post/Story</h5>
+
+      <div>
+        <ul>
+          <li v-for="(field, fieldName) in formData"
+              :key="fieldName">
+            <input type="checkbox"
+                   v-model="field.show" />
+            <input class="instaInput"
+                   v-model="field.value" />
+          </li>
+        </ul>
+        <div>
+          Logo:
+          <select id="listlogo"
+                  v-model="logoname">
+            <option v-for="option in logoslist"
+                    :value="option">
+              {{ option.text }}
+            </option>
+          </select>
+        </div>
+        <div>
+          Logo Hello Doe:
+          <select id="blackOrWhite"
+                  v-model="logoHelloDoe">
+            <option v-for="logo in logoHelloDoeList"
+                    :key="logo.name"
+                    :value="logo.asset">{{logo.name}}</option>
+          </select>
+        </div>
+
+        <div class="mission-com-page__actions">
+          <el-button type="primary"
+                     plain
+                     icon="el-icon-picture"
+                     @click="changeAdBackgroundGradientColor">
+            Gradient color
+          </el-button>
+          <el-button type="primary"
+                     plain
+                     icon="el-icon-picture"
+                     @click="changeAdBackgroundColor">
+            Background Color
+          </el-button>
+        </div>
+      </div>
+    </el-card>
+
+    <el-card shadow="never">
+      <div class="mission-com-page__header"
+           slot="header">
+        <h5>Publicités</h5>
+        <el-button type="primary"
+                   plain
+                   icon="el-icon-download"
+                   @click="screenAll">
+          Screen all
+        </el-button>
+      </div>
+
+      <div>
+        <h5>Weekly Mission</h5>
+        <div class="carousel carousel-missions">
+          <div id="Weekly"
+               class="carousel-item "
+               :class="adBackgroundClass">
+            <div class="category-infos">
+              <ul>
+                <li v-if="formData.category.show"
+                    :class="adBackgroundGradientClass"
+                    class="category">{{ formData.category.value }} </li>
+                <li class="liemoji">{{logoname.text}}</li>
+              </ul>
+            </div>
+            <div class="date-infos">
+              <ul>
+                <li v-if="formData.typejob.show"
+                    class="typejob rounded">{{ formData.typejob.value }} </li>
+
+                <li v-if="formData.volumeH.show"
+                    class="volumeH"
+                    :class="adBackgroundGradientClass">{{formData.volumeH.value}}</li>
+                <li v-if="formData.volumeHbywhat.show"
+                    class="volumeHbywhat">/{{formData.volumeHbywhat.value}}</li>
+                <li v-if="formData.workDays.show"
+                    class="workDays">{{formData.workDays.value}}</li>
+              </ul>
+            </div>
+            <div class="location-infos">
+              <ul>
+                <li class="liemoji location">📍</li>
+                <li v-if="formData.district.show"
+                    class="district"> {{formData.district.value}} </li>
+              </ul>
+            </div>
+            <div class="pay-infos">
+              <ul>
+                <li class="liemoji rounded hourly-pay">💸</li>
+
+                <li v-if="formData.amountbyH.show"
+                    class="amountbyH rounded">{{formData.amountbyH.value}} /Heure</li>
+              </ul>
+            </div>
+            <div class="mission-id-infos">
+              <ul>
+                <li :class="adBackgroundGradientClass"
+                    class="liemoji rounded chat">💬</li>
+                <li v-if="formData.id.show"
+                    class="id"
+                    :class="adBackgroundGradientClass">{{formData.id.value}}</li>
+              </ul>
+            </div>
+          </div>
+          <el-button type="primary"
+                     plain
+                     icon="el-icon-download"
+                     @click="screenshot('Weekly')">
+          </el-button>
+        </div>
+
+        <!-- POST INSTAGRAM 1 PAGE -->
+        <h5>Post instagram</h5>
+        <div class="carousel  ">
+          <div id="PostInstagram1"
+               class="carousel-item mission-infos"
+               :class="adBackgroundClass">
+            <div style="margin-top: 0;"
+                 class=" main-label">
+              <div style="margin-left: auto; margin-right: auto;"
+                   class="container"> <img style="margin-top: auto; margin-bottom: auto;"
+                     class="imageLi"
+                     :src="logoname.value"
+                     alt="mainImage" /></div>
+            </div>
+            <div class="info-list">
+              <ul class="postinstaLiTitre">
+                <li id="category"
+                    v-if="formData.category.show"
+                    class="category">{{formData.category.value}}</li>
+                <li v-if="formData.typejob.show"
+                    class="typejob black">{{formData.typejob.value}}</li>
+              </ul>
+              <ul>
+                <li class="liemoji location">📍</li>
+                <li v-if="formData.city.show"
+                    class="city">{{formData.city.value}}</li>
+                <li v-if="formData.district.show"
+                    class="district rounded">{{formData.district.value}}</li>
+              </ul>
+              <ul class="postinstali">
+                <li class="liemoji">📅</li>
+                <li id="duree"
+                    v-if="formData.duree.show"
+                    class="duree ">{{formData.duree.value}}</li>
+                <li v-if="formData.volumeH.show"
+                    class="volumeH location">{{formData.volumeH.value}}</li>
+                <li v-if="formData.workDays.show"
+                    class="workDays">{{formData.workDays.value}}</li>
+                <li v-if="formData.workHours.show"
+                    class="workHours pay">{{formData.workHours.value}}</li>
+              </ul>
+              <ul>
+                <li class="liemoji rounded hourly-pay">💸</li>
+                <li v-if="formData.amountLarge.show"
+                    :class="adBackgroundGradientClass"
+                    class="amountLarge">{{formData.amountLarge.value}}/{{formData.amountLargebywhat.value}}</li>
+                <li v-if="formData.amountbyH.show"
+                    class="amountbyH">{{formData.amountbyH.value}}/Heure</li>
+              </ul>
+            </div>
+          </div>
+          <el-button type="primary"
+                     plain
+                     icon="el-icon-download"
+                     @click="screenshot('PostInstagram1')">
+          </el-button>
+          <!-- POST INSTAGRAM 2 PAGE -->
+          <div id="PostInstagram2"
+               class="carousel-item mission-infos  "
+               :class="adBackgroundClass">
+            <div style="margin-top: 0;"
+                 class=" main-label">
+              <div style="margin-left: auto; margin-right: auto;"
+                   class="container"> <img style="margin-top: auto; margin-bottom: auto;"
+                     class="imageLi"
+                     :src="logospeech"
+                     alt="speechImage" /></div>
+            </div>
+            <ul>
+              <li>📲</li>
+              <li>Facebook</li>
+              <li>Messenger</li>
+            </ul>
+            <ul>
+              <li class="liemoji">🔎</li>
+              <li>Hello Doe</li>
+            </ul>
+            <ul>
+              <li>Envoi</li>
+              <li v-if="formData.id.show"
+                  class="rounded"
+                  :class="adBackgroundGradientClass">{{formData.id.value}}</li>
+            </ul>
+            <div style="margin-left: auto; margin-right: auto;"
+                 class="containerHellodoe"> <img style="margin-top: auto; margin-bottom: auto;"
+                   class=""
+                   :src="logoHelloDoe"
+                   alt="mainImage" /></div>
+          </div>
+          <el-button type="primary"
+                     plain
+                     icon="el-icon-download"
+                     @click="screenshot('PostInstagram2')">
+          </el-button>
+        </div>
+
+        <!-- STORY INSTAGRAM 1 PAGE -->
+        <h5>Story instagram</h5>
+        <div class="carousel carousel-missions">
+          <div id="StoryInstagram"
+               class="stories-item ">
+            <div id="toppart"
+                 class="top-part"
+                 :class="adBackgroundClass">
+              <div class="story-top-item event ">
+                <div class="category-infos ">
+                  <ul>
+                    <li id="cateogry"
+                        v-if="formData.category.show"
+                        class="cateogry"
+                        :class="adBackgroundGradientClass">{{formData.category.value}}</li>
+                    <li class="liemoji rounded">{{logoname.text}}</li>
+                  </ul>
+                </div>
+                <div class="date-infos">
+                  <ul>
+                    <li class="liemoji date rounded">📅</li>
+                    <li id="workDays"
+                        v-if="formData.workDays.show"
+                        class="workDays"
+                        :class="adBackgroundGradientClass">{{formData.workDays.value}}</li>
+                    <li v-if="formData.volumeH.show"
+                        class="volumeH">{{formData.volumeH.value}}</li>
+                    <li id="volumeHbywhat"
+                        v-if="formData.volumeHbywhat.show"
+                        class="volumeHbywhat rounded">{{formData.volumeHbywhat.value}}</li>
+                  </ul>
+                </div>
+                <div class="location-infos">
+                  <ul>
+                    <li class="liemoji location">📍</li>
+                    <li id="city"
+                        v-if="formData.city.show"
+                        class="city rounded "
+                        :class="adBackgroundGradientClass">{{formData.city.value}}</li>
+                    <li id=" district"
+                        v-if="formData.district.show"
+                        class="district">{{formData.district.value}}</li>
+                  </ul>
+                </div>
+                <div class="pay-infos">
+                  <ul>
+                    <li class=" liemoji bold rounded pay">💸</li>
+                    <li id="amountLargebywhat"
+                        v-if="formData.amountLargebywhat.show"
+                        class="amountLargebywhat"
+                        :class="adBackgroundGradientClass">{{formData.amountLargebywhat.value}}</li>
+                    <li id="amountLarge"
+                        v-if="formData.amountLarge.show"
+                        class="amountLarge">{{formData.amountLarge.value}}</li>
+                  </ul>
+                </div>
+                <div class="mission-id-infos">
+                  <ul>
+                    <li class="liemoji rounded  chat"
+                        :class="adBackgroundGradientClass">💬</li>
+                    <li id="id"
+                        v-if="formData.id.show"
+                        class="id"
+                        :class="adBackgroundGradientClass">{{formData.id.value}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="bottom-part">
+            </div>
+          </div>
+          <el-button type="primary"
+                     plain
+                     icon="el-icon-download"
+                     @click="screenshot('StoryInstagram')">
+          </el-button>
+        </div>
+      </div>
+    </el-card>
+
+    <!-- Description instagram -->
+    <el-card shadow="never">
+      <div class="mission-com-page__header"
+           slot="header">
+        <h5 slot="header">Description Instagram</h5>
+        <el-button type="primary"
+                   plain
+                   icon="el-icon-document-copy"
+                   @click="doCopy">
+          Copier
+        </el-button>
+      </div>
+
+      <div>
+        <pre class="mission-com-page__description-to-copy">{{getdescriptionToCopy()}}</pre>
+      </div>
+    </el-card>
+  </div>
+</hd-page>
